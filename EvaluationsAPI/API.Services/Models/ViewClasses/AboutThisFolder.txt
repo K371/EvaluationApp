@@ -1,0 +1,6 @@
+﻿This folder contains Model/Entity classes which *don't* map 
+directly to a table, but to a view.
+
+TODO: we should probably put a common postfix on
+these classes, such that it is inherently obvious 
+when they are being used.

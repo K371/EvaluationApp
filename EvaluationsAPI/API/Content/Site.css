@@ -1,0 +1,13 @@
+﻿/* table { table-layout: fixed; } */
+
+caption {
+	text-align: left;
+	font-weight: bold;
+	font-size: 16pt;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+dl {
+	-webkit-margin-before: 0em
+}
