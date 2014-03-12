@@ -1,12 +1,21 @@
 app.controller("LogInController", [
-	"$scope", "$http",
-	function($scope, $http) {
+	"$scope", "$http", "LogInFactory",
+	function($scope, $http, LogInFactory) {
 		$scope.username = "";
 		$scope.password = "";
  		var user = {};
  		var token = "";
 		$scope.getCredentials = function(){
-			$http({
+			var userObj = {
+				user: $scope.username,
+				pass: $scope.password
+			}
+			LogInFactory.logMeIn(userObj).then(function (success){
+				console.log(success.data.User.FullName);
+				console.log(success.data.Token);
+			});
+			
+			/*$http({
 				method: 'POST',
 				url: 'http://project3api.haukurhaf.net/api/v1/login',
 				data: {	'user' : $scope.username, 
@@ -31,14 +40,8 @@ app.controller("LogInController", [
 					}	
 			);
 
-			/*ApiFactory.logMeIn(userObj).then(function(data) {
-				console.log("Success, data:", data);
-			}, function(errorMessage){
-				console.log("Error: " + errorMessage);
-			},	function(updateMessage){
-				console.log("Update: " + updateMessage);
-			});*/
-
+			
+			*/
 		};
 	}
 ]);
