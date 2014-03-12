@@ -9,8 +9,6 @@ app.controller("HomeController", [
  		
  		$scope.firstname = firstname;
  		
- 		
- 		
 
 		ApiFactory.getAllEvaluations().then(function(data) {
 			//console.log("Success, data: ", data);

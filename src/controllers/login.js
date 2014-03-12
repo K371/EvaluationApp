@@ -15,7 +15,12 @@ app.controller("LogInController", [
 				if(data.data.User.Role === 'student'){
 					$location.path('/home');
 				}
+				else if(data.data.User.Role === 'admin'){
+					$location.path('/adminhome');
+				}
 			});
+
+			$scope.wrongUser = "Wrong Username and/or Password";
 			
 		
 		};

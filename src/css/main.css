@@ -15,6 +15,12 @@
 
 }
 
+#wrongUser{
+	color: red;
+	font-size: 10;
+	float: left;
+}
+
 #name{
 	float: right;
 	margin-top: 0;
