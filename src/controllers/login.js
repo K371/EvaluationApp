@@ -12,14 +12,14 @@ app.controller("LogInController", [
 				pass: $scope.password
 			}
 			LogInFactory.logMeIn(userObj).then(function(data){
-				
-				
 				if(data.data.User.Role === 'student'){
 					$location.path('/home');
-					
 				}
 			});
 			
+		
 		};
+	
+
 	}
 ]);

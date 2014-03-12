@@ -2,6 +2,7 @@ app.factory("LogInFactory", [
 	"$http",
 	function($http) {
 		var token = "";
+		var firstname = "";
 		return{
 			logMeIn: function(userObj){
 				var promise = $http({
@@ -14,6 +15,8 @@ app.factory("LogInFactory", [
 			.then(	function(response){
 						var user = response.data.User;
 						token = response.data.Token;
+						firstname = response.data.User.FullName;
+						
 						return response;
 					}
 			);
@@ -24,8 +27,14 @@ app.factory("LogInFactory", [
 			getToken: function(){
 				var tempToken = token;
 				return tempToken;
-			}
+			},
 			
+			getFirstName: function(){
+				var str = firstname;
+				str = str.split(" ");
+	
+				return str[0];
+			}
 
 		};
 
