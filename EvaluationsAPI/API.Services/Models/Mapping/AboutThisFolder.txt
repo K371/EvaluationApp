@@ -1,4 +1,0 @@
-﻿This folder contains all the ***Map.cs files, which specify
-to what table/view each model class maps. Note that some model
-classes map directly to tables, while others map to a view.
-The ***Map.cs files handle both cases.
