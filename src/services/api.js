@@ -69,5 +69,6 @@ app.factory("ApiFactory", [
 				return deferred.promise;
 			}
 		};
+		
 	}
 ]);

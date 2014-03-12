@@ -1,5 +1,5 @@
 app.controller("LogInController", [
-	"$scope", "ApiFactory",
+	"$scope", "$http",
 	function($scope, $http) {
 		$scope.username = "";
 		$scope.password = "";
@@ -11,14 +11,28 @@ app.controller("LogInController", [
 			};
 			console.log(userObj);
 			$http({
-				method: 'POST',
+				method: "POST",
 				url: 'http://project3api.haukurhaf.net/api/v1/login',
-				data: userObj,
-				headers: {'Content-Type' : 'application/json'}
-			});
+				data: {	'user' : $scope.username, 
+						'pass' : $scope.password
+				}
+				//headers: {'Content-Type' : 'application/json'}
+			})
+			.then(	function(response){
+						console.log(response);	
+					},
+					function(response){
+						console.log("Failed");
+					}	
+			);
 
-				
-
+			/*ApiFactory.logMeIn(userObj).then(function(data) {
+				console.log("Success, data:", data);
+			}, function(errorMessage){
+				console.log("Error: " + errorMessage);
+			},	function(updateMessage){
+				console.log("Update: " + updateMessage);
+			});*/
 
 		};
 	}
