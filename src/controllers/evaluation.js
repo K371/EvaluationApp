@@ -3,6 +3,7 @@ app.controller("EvaluationController", [
 	function($scope, ApiFactory, $routeParams) {
 		var evaluationID = $routeParams.evaluationID;
 
+		
 		if(evaluationID !== undefined) {
 			ApiFactory.getEvaluationById(evaluationID).then(function(data) {
 				$scope.evaluation = data;

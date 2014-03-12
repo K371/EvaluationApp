@@ -16,7 +16,7 @@ app.factory("LogInFactory", [
 						var user = response.data.User;
 						token = response.data.Token;
 						firstname = response.data.User.FullName;
-						
+						$http.defaults.headers.common['Authorization'] = "Basic " + token;
 						return response;
 					}
 			);
