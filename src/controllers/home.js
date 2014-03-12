@@ -9,5 +9,7 @@ app.controller("HomeController", [
 		}, function(updateMessage) {
 			console.log("Update: " + updateMessage);
 		});
+
+		console.log(token);
 	}
 ]);

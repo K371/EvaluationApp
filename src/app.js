@@ -15,6 +15,6 @@ app.config(function($routeProvider) {
 		controller: "EvaluationController"
 	}).when("/", {
 		templateUrl: "templates/login.html",
-		controller: "LogInController"
+		controller: "LogInController",
 	}).otherwise({ redirectTo: "/"});
 });
