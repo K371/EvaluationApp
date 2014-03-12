@@ -3,23 +3,27 @@ app.controller("LogInController", [
 	function($scope, $http) {
 		$scope.username = "";
 		$scope.password = "";
- 
+ 		var user = {};
+ 		var token = "";
 		$scope.getCredentials = function(){
-			var userObj = {
-				user: $scope.username,
-				pass: $scope.password
-			};
-			console.log(userObj);
 			$http({
-				method: "POST",
+				method: 'POST',
 				url: 'http://project3api.haukurhaf.net/api/v1/login',
 				data: {	'user' : $scope.username, 
 						'pass' : $scope.password
 				}
-				//headers: {'Content-Type' : 'application/json'}
 			})
 			.then(	function(response){
-						console.log(response);	
+						user = response.data.User;
+						token = response.data.Token;
+						console.log(user);
+						if (user.Role == "admin") {
+							console.log("Woah, Admin here!");
+						}
+						else{
+							console.log("Just a mere student...");
+						}
+						
 					},
 					function(response){
 						console.log("Failed");
