@@ -3,6 +3,7 @@ app.controller("LogInController", [
 	function($scope, $http, LogInFactory, $location) {
 		$scope.username = "";
 		$scope.password = "";
+		var login = false;
  		var user = {};
  		var token = "";
 
@@ -11,19 +12,24 @@ app.controller("LogInController", [
 				user: $scope.username,
 				pass: $scope.password
 			}
-			LogInFactory.logMeIn(userObj).then(function(data){
-				if(data.data.User.Role === 'student'){
+			LogInFactory.logMeIn(userObj).then(function(userObj){
+				login = true;
+
+				if(userObj.data.User.Role === 'student'){
 					$location.path('/home');
 				}
-				else if(data.data.User.Role === 'admin'){
+				else if(userObj.data.User.Role === 'admin'){
 					$location.path('/adminhome');
 				}
-			});
+				$scope.wrongUser = "";
 
-			$scope.wrongUser = "Wrong Username and/or Password";
+			}, function(failure){
+				$scope.wrongUser = "Wrong Username and/or Password";
+			});
 			
 		
 		};
+		
 	
 
 	}
