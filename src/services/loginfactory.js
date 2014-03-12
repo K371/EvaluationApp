@@ -14,11 +14,9 @@ app.factory("LogInFactory", [
 						var user = response.data.User;
 						var token = response.data.Token;
 						return response;
-					},
-					function(response){
-						console.log("Failed");
-					}	
+					}
 			);
+			
 			return promise;
 			}
 		};

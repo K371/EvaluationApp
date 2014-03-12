@@ -10,9 +10,9 @@ app.controller("LogInController", [
 				user: $scope.username,
 				pass: $scope.password
 			}
-			LogInFactory.logMeIn(userObj).then(function (success){
-				console.log(success.data.User.FullName);
-				console.log(success.data.Token);
+			LogInFactory.logMeIn(userObj).then(function(data){
+				console.log(data.data.User.FullName);
+				console.log(data.data.Token);
 			});
 			
 			/*$http({
