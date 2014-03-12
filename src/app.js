@@ -4,6 +4,9 @@ app.config(function($routeProvider) {
 	$routeProvider.when("/home", {
 		templateUrl: "templates/home.html",
 		controller: "HomeController",
+	}).when("/admin", {
+		templateUrl: "templates/adminhome.html",
+		controller: "AdminHomeController"
 	}).when("/evaluation/:evaluationID", {
 		templateUrl: "templates/evaluation.html",
 		controller: "EvaluationController"

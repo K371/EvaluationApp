@@ -18,10 +18,10 @@ app.controller("LogInController", [
 						token = response.data.Token;
 						console.log(user);
 						if (user.Role == "admin") {
-							console.log("Woah, Admin here!");
+							console.log("Woah look out, Admin here!");
 						}
 						else{
-							console.log("Just a mere student...");
+							console.log("Just a mere student peasant...");
 						}
 						
 					},

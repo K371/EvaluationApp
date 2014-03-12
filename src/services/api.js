@@ -26,7 +26,7 @@ app.factory("ApiFactory", [
 
 		function generateEvaluations() {
 			var result = [];
-			for(var i = 0; i < 5; ++i) {
+			for(var i = 0; i < 1; ++i) {
 				var number = i+1;
 				var evaluation = createEvaluation(i, "Kennslumat " + number, "Evaluation " + number, "Derp", "Derp");
 				for(var j = 0; j < 3; ++j) {
@@ -69,6 +69,6 @@ app.factory("ApiFactory", [
 				return deferred.promise;
 			}
 		};
-		
+
 	}
 ]);
