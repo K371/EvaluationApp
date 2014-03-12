@@ -1,6 +1,11 @@
 app.controller("HomeController", [
-	"$scope", "ApiFactory",
-	function($scope, ApiFactory) {
+	"$scope", "ApiFactory", "LogInFactory", "$location",
+	function($scope, ApiFactory, LogInFactory, $location) {
+		var token = LogInFactory.getToken();
+ 		if(token === ""){
+ 			$location.path("/");
+ 		}
+
 		ApiFactory.getAllEvaluations().then(function(data) {
 			console.log("Success, data: ", data);
 			$scope.evaluations = data;
@@ -10,6 +15,6 @@ app.controller("HomeController", [
 			console.log("Update: " + updateMessage);
 		});
 
-		console.log(token);
+
 	}
 ]);
