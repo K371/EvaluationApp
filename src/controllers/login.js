@@ -16,7 +16,7 @@ app.controller("LogInController", [
 				login = true;
 				
 				if(userObj.data.User.Role === 'student'){
-					$location.path('/home');
+					$location.path('/Student');
 				}
 				if(userObj.data.User.Role === 'admin'){
 					$location.path('/admin');
