@@ -44,17 +44,17 @@ app.factory("ApiFactory", [
 		return {
 			getEvaluationTemplates: function(){
 				var templates = $http({	method: 'GET', 
-				url: 'http://project3api.haukurhaf.net/api/v1/evaluationtemplates'
+					url: 'http://project3api.haukurhaf.net/api/v1/evaluationtemplates'
 				
 				}).
     			success(function(data, status, headers, config) {
       				return data;
     			}).
-		    	error(function(data, status, headers, config) {
-		      // called asynchronously if an error occurs
-		      // or server returns response with an error status.
+		    		error(function(data, status, headers, config) {
+		      		// called asynchronously if an error occurs
+		      		// or server returns response with an error status.
 		    	});
-    	return templates;
+    			return templates;
 			},
 
 			getAllEvaluations: function() {
@@ -65,16 +65,19 @@ app.factory("ApiFactory", [
 				return deferred.promise;
 			},
 			getEvaluationById: function(id) {
-				var deferred = $q.defer();
-
-				if(evaluations[id]) {
-					deferred.resolve(evaluations[id]);
-				}
-				else {
-					deferred.reject("No evaluation with this id");
-				}
-
-				return deferred.promise;
+				var Url = 'http://project3api.haukurhaf.net/api/v1/evaluationtemplates/' + id;
+				var bitches = $http({	method: 'GET', 
+				url: Url
+				
+				}).
+    			success(function(data, status, headers, config) {
+      				return data;
+    			}).
+		    	error(function(data, status, headers, config) {
+		      // called asynchronously if an error occurs
+		      // or server returns response with an error status.
+		    	});
+		    	return bitches;
 			},
 			addEvaluation: function(evaluation) {
 				var deferred = $q.defer();

@@ -1,12 +1,16 @@
 app.controller("EvaluationController", [
-	"$scope", "ApiFactory", "$routeParams",
-	function($scope, ApiFactory, $routeParams) {
+	"$scope", "ApiFactory", "$routeParams", "LogInFactory", "$http",
+	function($scope, ApiFactory, $routeParams, LogInFactory, $http) {
 		var evaluationID = $routeParams.evaluationID;
+		var token = LogInFactory.getToken();
+		console.log(token);
+		
 
 		
 		if(evaluationID !== undefined) {
-			ApiFactory.getEvaluationById(evaluationID).then(function(data) {
-				$scope.evaluation = data;
+			ApiFactory.getEvaluationById(evaluationID).then(function(response) {
+				console.log("Success, data: ", response.data);
+				$scope.evaluation = response.data;
 			}, function(errorMessage) {
 				console.log("Error fetching evaluation: " + errorMessage);
 			});
