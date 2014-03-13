@@ -20,7 +20,7 @@ app.controller("LogInController", [
 				}
 				if(userObj.data.User.Role === 'admin'){
 					$location.path('/admin');
-					console.log(userObj.data.User.Role);
+					//console.log(userObj.data.User.Role);
 				}
 				$scope.wrongUser = "";
 

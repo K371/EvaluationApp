@@ -3,6 +3,7 @@ app.factory("LogInFactory", [
 	function($http) {
 		var token = "";
 		var firstname = "";
+		var role = "";
 		return{
 			logMeIn: function(userObj){
 				var promise = $http({
@@ -16,6 +17,7 @@ app.factory("LogInFactory", [
 						var user = response.data.User;
 						token = response.data.Token;
 						firstname = response.data.User.FullName;
+						role = response.data.User.Role;
 						$http.defaults.headers.common['Authorization'] = "Basic " + token;
 						return response;
 					}
@@ -34,6 +36,10 @@ app.factory("LogInFactory", [
 				str = str.split(" ");
 	
 				return str[0];
+			},
+
+			getRole: function(){
+				return role;
 			}
 
 		};

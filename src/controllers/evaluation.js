@@ -1,8 +1,16 @@
 app.controller("EvaluationController", [
-	"$scope", "ApiFactory", "$routeParams",
-	function($scope, ApiFactory, $routeParams) {
+	"$scope", "ApiFactory", "LogInFactory", "$routeParams", "$location",
+	function($scope, ApiFactory, LogInFactory, $routeParams, $location) {
 		var evaluationID = $routeParams.evaluationID;
 
+		/* Only works for students atm, must use LogInFactory to determine role */
+		$scope.redirectBack = function(){
+			if(LogInFactory.getRole() === "student")
+			$location.path('/Student');
+			if(LogInFactory.getRole() === "admin")
+			$location.path('/admin');
+
+		};
 		
 		if(evaluationID !== undefined) {
 			ApiFactory.getEvaluationById(evaluationID).then(function(data) {

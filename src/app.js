@@ -14,21 +14,21 @@ app.directive('ngEnter', function () {
 
 app.config(function($routeProvider) {
 	$routeProvider.when("/Student", {
-		templateUrl: "templates/studenthome.html",
+		templateUrl: "templates/studenthome.html", 			/* student home */
 		controller: "HomeController",
 	}).when("/admin", {
-		templateUrl: "templates/adminhome.html",
+		templateUrl: "templates/adminhome.html",			/* admin home */
 		controller: "AdminHomeController"
 	}).when("/Admin/Evaluation/:evaluationID", {
-		templateUrl: "templates/adminevaluation.html",
+		templateUrl: "templates/adminevaluation.html", 		/* admin evaluation page */
 		controller: "EvaluationController"
 	}).when("/evaluation/", {
-		templateUrl: "templates/evaluation.html",
+		templateUrl: "templates/evaluation.html",	 		/* does nothing atm */
 		controller: "EvaluationController" 
-	}).when("/Student/Evaluation/:evaluationID", {
+	}).when("/Student/Evaluation/:evaluationID", {			/* student evaluation page */
 		templateUrl: "templates/studentevaluation.html",
-		controller: "EvaluationController" /* temp using same controller */
-	}).when("/", {
+		controller: "EvaluationController" 				/* temp using same controller */
+	}).when("/", {											/* if nothing fits */
 		templateUrl: "templates/login.html",
 		controller: "LogInController",
 	}).otherwise({ redirectTo: "/"});
