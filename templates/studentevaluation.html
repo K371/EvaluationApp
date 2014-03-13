@@ -20,8 +20,6 @@
 		</textarea>
 	</div>
 </div>
-<<<<<<< HEAD
-
 
 <div>
 	<h2>Spurningar úr námskeiði</h2>
@@ -37,25 +35,9 @@
 			<button class="btn btn-mini" ng-click="addAnswer(question)">Bæta við svarmöguleika</button>
 		</div>
 	</div>
+
 
 <button ng-click="redirectBack()" class="btn btn-success btn-large"><i class="icon-white icon-arrow-left"></i> Back to evaluations</button>
 
-</div>
-=======
->>>>>>> 724ec963089a57dad641b9026c8459278c6a590e
 
-<div>
-	<h2>Spurningar úr námskeiði</h2>
-	<div ng-repeat="question in evaluation.CourseQuestions">
-		<input ng-model="question.TextIS" class="form-control" placeholder="Texti á spurningu" />
-		<div ng-show="question.Type == 'multiple' || question.Type == 'single'">
-			<p>Svarmöguleikar:</p>
-			<ul>
-				<li ng-repeat="answer in question.Answers track by $index">
-					<input ng-model="answer" />
-				</li>
-			</ul>
-			<button class="btn btn-mini" ng-click="addAnswer(question)">Bæta við svarmöguleika</button>
-		</div>
-	</div>
 </div>
