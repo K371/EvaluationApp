@@ -1,6 +1,6 @@
 app.factory("ApiFactory", [
-	"$q", "$timeout",
-	function($q, $timeout) {
+	"$q", "$timeout", "$http",
+	function($q, $timeout, $http) {
 		function createEvaluation(id, titleIS, titleEN, introIS, introEN) {
 			return {
 				ID: id,
@@ -42,6 +42,21 @@ app.factory("ApiFactory", [
 		var evaluations = generateEvaluations();
 
 		return {
+			getEvaluationTemplates: function(){
+				var templates = $http({	method: 'GET', 
+				url: 'http://project3api.haukurhaf.net/api/v1/evaluationtemplates'
+				
+				}).
+    			success(function(data, status, headers, config) {
+      				return data;
+    			}).
+		    	error(function(data, status, headers, config) {
+		      // called asynchronously if an error occurs
+		      // or server returns response with an error status.
+		    	});
+    	return templates;
+			},
+
 			getAllEvaluations: function() {
 				var deferred = $q.defer();
 

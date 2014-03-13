@@ -8,48 +8,11 @@ app.controller("HomeController", [
  		}
  		
  		$scope.firstname = firstname;
- 		
- 		
- 		//GET EVALUATIONS!!!
- 		$http({	method: 'GET', 
-				url: 'http://project3api.haukurhaf.net/api/v1/my/evaluations'
-				
-				}).
-    			success(function(data, status, headers, config) {
-      				console.log("Get Evaluations!");
-      				console.log(data);
-      				console.log(status);
-      				console.log(headers);
-      				console.log(config);
-    			}).
-    	error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-    	});
 
 
-    	//GET COURSES
-    	$http({	method: 'GET', 
-				url: 'http://project3api.haukurhaf.net/api/v1/my/courses'
-				
-				}).
-    			success(function(data, status, headers, config) {
-      				console.log("Get courses!");
-      				console.log(data);
-      				console.log(status);
-      				console.log(headers);
-      				console.log(config);
-    			}).
-    	error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-    	});
-
-
-
-		ApiFactory.getAllEvaluations().then(function(data) {
-			//console.log("Success, data: ", data);
-			$scope.evaluations = data;
+		ApiFactory.getEvaluationTemplates().then(function(data) {
+			console.log("Success, data: ", data);
+			$scope.evaluations = data.data;
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);
 		}, function(updateMessage) {
