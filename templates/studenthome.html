@@ -1,0 +1,7 @@
+<bla id="name" ng-model="firstname">Welcome, {{firstname}}</bla>
+<h1>Evaluations</h1>
+<table class="table table-striped">
+	<tr ng-repeat="evaluation in evaluations">
+		<td><a ng-href="#/Student/Evaluation/{{ evaluation.ID }}">{{ evaluation.TitleIS }}</a></td>
+	</tr>
+</table>
