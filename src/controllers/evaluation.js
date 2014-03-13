@@ -1,14 +1,9 @@
 app.controller("EvaluationController", [
-	"$scope", "ApiFactory", "$routeParams", "LogInFactory", "$http",
-	function($scope, ApiFactory, $routeParams, LogInFactory, $http) {
+	"$scope", "ApiFactory", "$routeParams", "LogInFactory", "$http", "$location",
+	function($scope, ApiFactory, $routeParams, LogInFactory, $http, $location) {
 		var evaluationID = $routeParams.evaluationID;
 		var token = LogInFactory.getToken();
 		console.log(token);
-<<<<<<< HEAD
-=======
-		
->>>>>>> 724ec963089a57dad641b9026c8459278c6a590e
-
 
 
 		/* Only works for students atm, must use LogInFactory to determine role */
