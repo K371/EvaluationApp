@@ -1,7 +1,15 @@
 app.controller("EvaluationController", [
+<<<<<<< HEAD
 	"$scope", "ApiFactory", "LogInFactory", "$routeParams", "$location",
 	function($scope, ApiFactory, LogInFactory, $routeParams, $location) {
+=======
+	"$scope", "ApiFactory", "$routeParams", "LogInFactory", "$http",
+	function($scope, ApiFactory, $routeParams, LogInFactory, $http) {
+>>>>>>> 724ec963089a57dad641b9026c8459278c6a590e
 		var evaluationID = $routeParams.evaluationID;
+		var token = LogInFactory.getToken();
+		console.log(token);
+		
 
 		/* Only works for students atm, must use LogInFactory to determine role */
 		$scope.redirectBack = function(){
@@ -13,8 +21,9 @@ app.controller("EvaluationController", [
 		};
 		
 		if(evaluationID !== undefined) {
-			ApiFactory.getEvaluationById(evaluationID).then(function(data) {
-				$scope.evaluation = data;
+			ApiFactory.getEvaluationById(evaluationID).then(function(response) {
+				console.log("Success, data: ", response.data);
+				$scope.evaluation = response.data;
 			}, function(errorMessage) {
 				console.log("Error fetching evaluation: " + errorMessage);
 			});

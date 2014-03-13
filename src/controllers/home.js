@@ -11,7 +11,6 @@ app.controller("HomeController", [
 
 
 		ApiFactory.getEvaluationTemplates().then(function(data) {
-			console.log("Success, data: ", data);
 			$scope.evaluations = data.data;
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);
