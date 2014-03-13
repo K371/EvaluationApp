@@ -1,15 +1,12 @@
 app.controller("EvaluationController", [
-<<<<<<< HEAD
 	"$scope", "ApiFactory", "LogInFactory", "$routeParams", "$location",
 	function($scope, ApiFactory, LogInFactory, $routeParams, $location) {
-=======
-	"$scope", "ApiFactory", "$routeParams", "LogInFactory", "$http",
-	function($scope, ApiFactory, $routeParams, LogInFactory, $http) {
->>>>>>> 724ec963089a57dad641b9026c8459278c6a590e
+
 		var evaluationID = $routeParams.evaluationID;
 		var token = LogInFactory.getToken();
 		console.log(token);
 		
+
 
 		/* Only works for students atm, must use LogInFactory to determine role */
 		$scope.redirectBack = function(){
@@ -17,6 +14,7 @@ app.controller("EvaluationController", [
 			$location.path('/Student');
 			if(LogInFactory.getRole() === "admin")
 			$location.path('/admin');
+
 
 		};
 		
