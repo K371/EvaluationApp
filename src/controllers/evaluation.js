@@ -4,6 +4,10 @@ app.controller("EvaluationController", [
 		var evaluationID = $routeParams.evaluationID;
 		var token = LogInFactory.getToken();
 		console.log(token);
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 724ec963089a57dad641b9026c8459278c6a590e
 
 
 
