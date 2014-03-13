@@ -1,6 +1,7 @@
+<bla id="name" ng-model="firstname">Welcome, {{firstname}}</bla>
 <h1>Evaluations</h1>
-<ul>
-	<li ng-repeat="evaluation in evaluations">
-		<a ng-href="#/evaluation/{{ evaluation.ID }}">{{ evaluation.TitleIS }}</a>
-	</li>
-</ul>
+<table class="table table-striped">
+	<tr ng-repeat="evaluation in evaluations">
+		<td><a ng-href="#/evaluation/{{ evaluation.ID }}">{{ evaluation.TitleIS }}</a></td>
+	</tr>
+</table>
