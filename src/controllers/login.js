@@ -14,12 +14,13 @@ app.controller("LogInController", [
 			}
 			LogInFactory.logMeIn(userObj).then(function(userObj){
 				login = true;
-
+				
 				if(userObj.data.User.Role === 'student'){
 					$location.path('/home');
 				}
-				else if(userObj.data.User.Role === 'admin'){
-					$location.path('/adminhome');
+				if(userObj.data.User.Role === 'admin'){
+					$location.path('/admin');
+					console.log(userObj.data.User.Role);
 				}
 				$scope.wrongUser = "";
 
