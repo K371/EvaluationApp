@@ -6,7 +6,7 @@ app.controller("LogInController", [
 		var login = false;
  		var user = {};
  		var token = "";
-
+ 	
 		$scope.getCredentials = function(){
 			var userObj = {
 				user: $scope.username,
