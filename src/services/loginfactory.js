@@ -8,7 +8,7 @@ app.factory("LogInFactory", [
 			logMeIn: function(userObj){
 				var promise = $http({
 				method: 'POST',
-				url: 'http://project3api.haukurhaf.net/api/v1/login',
+				url: 'http://dispatch.ru.is/h26/api/v1/login',
 				data: {	'user' : userObj.user, 
 						'pass' : userObj.pass
 				}

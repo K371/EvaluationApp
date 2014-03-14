@@ -44,7 +44,7 @@ app.factory("ApiFactory", [
 		return {
 			getEvaluationTemplates: function(){
 				var templates = $http({	method: 'GET', 
-					url: 'http://project3api.haukurhaf.net/api/v1/evaluationtemplates'
+					url: 'http://dispatch.ru.is/h26/api/v1/evaluationtemplates'
 				
 				}).
     			success(function(data, status, headers, config) {
