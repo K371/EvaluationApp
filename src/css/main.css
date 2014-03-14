@@ -1,7 +1,5 @@
 #loginWindow{
 	border: 1px solid #e7e7e7;;
-
-
 	top: 100px;
 	width: 230px;
 	float:none;
@@ -28,7 +26,12 @@
 	margin-top: 0;
 }
 
-#back-button{
-	width:200px;
-	height:200px;
+ul li{
+	list-style-type: none;
+
+}
+
+
+textarea{
+	width: 400px;
 }

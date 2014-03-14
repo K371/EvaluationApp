@@ -1,7 +1,30 @@
 <bla id="name" ng-model="firstname">Welcome, {{firstname}}</bla>
 <h1>Evaluations</h1>
 <table class="table table-striped">
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Status</td>
+			<td>Start</td>
+			<td>Ends</td>
+		</tr>
+	</thead>
+	<tbody>
 	<tr ng-repeat="evaluation in evaluations">
-		<td><a ng-href="#/Student/Evaluation/{{ evaluation.ID }}">{{ evaluation.TitleIS }}</a></td>
+		<td>
+			<a ng-href="#/Student/Evaluation/{{evaluation.ID}}">
+				{{ evaluation.TemplateTitleIS }}
+			</a>
+		</td>
+		<td>
+		{{evaluation.Status}}
+		</td>
+		<td>
+			{{ evaluation.StartDate | date : 'dd. MMMM yyyy - HH:MM' }}
+		</td>
+		<td>
+			{{ evaluation.EndDate | date : 'dd. MMMM yyyy - HH:MM' }}
+		</td>
 	</tr>
+	</tbody>
 </table>

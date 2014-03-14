@@ -10,11 +10,14 @@
 				<p> TODO: Implement get </p>
 </div>
 
-<p>Spurning 1: {{evaluation.CourseQuestions[0].TextIS}}</p>
-<ul>
-	<li ng-repeat="questions in evaluation.CourseQuestions[0].Answers">{{questions.TextIS}}</li>
+<div ng-repeat="questions in evaluation.CourseQuestions">
+<p>{{questions.TextIS}}</p>
+<ul class=""><li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
+	<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" >{{answers.TextIS}}</input></li>
+	<li ng-if="questions.Type == 'text'">
+	<textarea ng-model="ans" name="{{questions.TextIS}}"></textarea></li>
 </ul>
-
+</div>
 
 
 

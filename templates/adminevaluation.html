@@ -1,32 +1,39 @@
-<h1>{{ evaluation.TitleIS }}</h1>
+<h2>{{ evaluation.TitleIS }}</h2>
 
-<input ng-model="evaluation.TitleIS" placeholder="Titillinn á kennslumatinu" class="form-control">
-<div class="form-group">
+
+
 	<label for="textareaIntro" class="col-sm-2 control-label">Kynning</label>
-	<div class="col-sm-10">
-		<textarea ng-model="evaluation.IntroTextIS" class="form-control" id="textareaIntro">
-		</textarea>
-	</div>
-</div>
-
-<div>
-	<h2>Spurningar úr námskeiði</h2>
+	
+	<p>{{evaluation.IntroTextIS}}</p>
+	
+	<h4>Spurningar úr námskeiði</h4>
+	<ol>
 	<div ng-repeat="question in evaluation.CourseQuestions">
-		<input ng-model="question.TextIS" class="form-control" placeholder="Texti á spurningu" />
+		<li>{{question.TextIS}}</li>
 		<div ng-show="question.Type == 'multiple' || question.Type == 'single'">
 			<p>Svarmöguleikar:</p>
-			<ul>
+			<ol type="a">
 				<li ng-repeat="answer in question.Answers track by $index">
-					<input ng-model="answer" />
-				</li>
-			</ul>
-			<button class="btn btn-mini" ng-click="addAnswer(question)">Bæta við svarmöguleika</button>
+					{{answer.TextIS}} </li>
+				
+			</ol>
+			
 		</div>
 	</div>
-	<button class="btn btn-mini" ng-click="addCourseQuestion()">Bæta við spurningu</button>
-</div>
+	</ol>
+	<div>
+	<h4>Start date</h4>
+	<input type="date" ng-model="startDate" />
+	<input type="time" ng-model="startTime" />
+	<h4>End date</h4>
+	<input type="date" ng-model="endDate" />
+	<input type="time" ng-model="endTime" />
+	</div>
+
 
 	
-</div>
+<button ng-click="submitEvaluation()" class="btn btn-success btn-large" style="margin-top:40px;">Submit Evaluation</button>
 
+<br />
+<br />
 <button ng-click="redirectBack()" class="btn btn-success btn-large" style="margin-top:40px;"><i class="icon-white icon-arrow-left"></i> Back to evaluations</button>

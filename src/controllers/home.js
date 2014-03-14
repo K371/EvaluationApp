@@ -11,6 +11,15 @@ app.controller("HomeController", [
 
 
 		ApiFactory.getEvaluationTemplates().then(function(data) {
+			console.log(data)
+			$scope.evaluationtemplates = data.data;
+		}, function(errorMessage) {
+			console.log("Error: " + errorMessage);
+		}, function(updateMessage) {
+			console.log("Update: " + updateMessage);
+		});
+
+		ApiFactory.getAllEvaluations().then(function(data) {
 			$scope.evaluations = data.data;
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);

@@ -3,8 +3,13 @@ app.controller("EvaluationController", [
 	function($scope, ApiFactory, $routeParams, LogInFactory, $http, $location) {
 		var evaluationID = $routeParams.evaluationID;
 		var token = LogInFactory.getToken();
-		console.log(token);
-
+		if(token === ""){
+ 			$location.path("/");
+ 		}
+ 		$scope.startDate = "";
+ 		$scope.startTime = "";
+ 		$scope.endDate = "";
+ 		$scope.endTime = "";
 
 		/* Only works for students atm, must use LogInFactory to determine role */
 		$scope.redirectBack = function(){
@@ -16,7 +21,7 @@ app.controller("EvaluationController", [
 		};
 		
 		if(evaluationID !== undefined) {
-			ApiFactory.getEvaluationById(evaluationID).then(function(response) {
+			ApiFactory.getEvaluationTemplateById(evaluationID).then(function(response) {
 				console.log("Success, data: ", response.data);
 				$scope.evaluation = response.data;
 			}, function(errorMessage) {
@@ -32,6 +37,19 @@ app.controller("EvaluationController", [
 				CourseQuestions: [],
 				TeacherQuestions: []
 			};
+		}
+
+		$scope.submitEvaluation = function(){
+
+			//ApiFactory.addEvaluation();
+			var startDateTime = $scope.startDate + "T" + $scope.startTime + ":00.0000000+00:00";
+			var endDateTime = $scope.endDate + "T" + $scope.endTime + ":00.0000000+00:00";
+			var submission = {
+				TemplateID: evaluationID,
+				StartDate: startDateTime,
+				EndDate: endDateTime
+			}
+			ApiFactory.addEvaluation(submission);
 		}
 
 		$scope.addAnswer = function(question) {

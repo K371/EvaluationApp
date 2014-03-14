@@ -58,13 +58,20 @@ app.factory("ApiFactory", [
 			},
 
 			getAllEvaluations: function() {
-				var deferred = $q.defer();
-
-				deferred.resolve(evaluations);
-			
-				return deferred.promise;
+				var evaluations = $http({	method: 'GET', 
+					url: 'http://dispatch.ru.is/h26/api/v1/evaluations'
+				
+				}).
+    			success(function(data, status, headers, config) {
+      				return data;
+    			}).
+		    		error(function(data, status, headers, config) {
+		      		// called asynchronously if an error occurs
+		      		// or server returns response with an error status.
+		    	});
+    			return evaluations;
 			},
-			getEvaluationById: function(id) {
+			getEvaluationTemplateById: function(id) {
 				var Url = 'http://dispatch.ru.is/h26/api/v1/evaluationtemplates/' + id;
 				var bitches = $http({	method: 'GET', 
 				url: Url
@@ -80,11 +87,13 @@ app.factory("ApiFactory", [
 		    	return bitches;
 			},
 			addEvaluation: function(evaluation) {
-				var deferred = $q.defer();
 
+				$http({
+					method: 'POST',
+					url: 'http://dispatch.ru.is/h26/api/v1/evaluations',
+					data: evaluation
+				});
 				
-
-				return deferred.promise;
 			}
 		};
 
