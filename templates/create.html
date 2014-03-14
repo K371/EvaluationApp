@@ -1,5 +1,5 @@
 <h2>{{ evaluation.TitleIS }}</h2>
-<input ng-model="evaluation.TitleIS" placeholder="Titillinn á kennslumatinu" class="form-control">
+<input ng-model="evaluation.TitleIS" placeholder="Titillinn á kennslumatinu" class="form-control input-group-lg">
 <div class="form-group">
 	<label for="textareaIntro" class="col-sm-2 control-label">Kynning</label>
 	<div class="col-sm-10">
@@ -10,19 +10,29 @@
 
 <div>
 	<h4>Áfanga Spurningar</h4>
-	<div ng-repeat="question in evaluation.CourseQuestions">
+	<div class="" ng-repeat="question in evaluation.CourseQuestions">
 		<input ng-model="question.TextIS" class="form-control" placeholder="Texti á spurningu" />
 		<div ng-show="question.Type == 'multiple' || question.Type == 'single'">
 			<p>Svarmöguleikar:</p>
 			<ul>
-				<li ng-repeat="answer in question.Answers track by $index">
-					<input ng-model="answer" />
+				<li class="input-group" ng-repeat="answer in question.Answers track by $index">
+					<span class="input-group-addon">
+						<input ng-show="question.Type == 'multiple'" type="checkbox" />
+						<input ng-show="question.Type == 'single'" type="radio" />
+					</span>
+					<input type="text" class="form-control" placeholder="New Answer" ng-model="answer" />
 				</li>
 			</ul>
 			<button class="btn btn-mini" ng-click="addAnswer(question)">Bæta við svarmöguleika</button>
 		</div>
 	</div>
-	<button class="btn btn-mini" ng-click="addCourseQuestion()">Bæta við spurningu</button>
+	
+	<div class="btn-group">
+		<button class="btn btn-default" ng-click="addCourseQuestionSingle()">Ný Spurning Radio</button>
+		<button class="btn btn-default" ng-click="addCourseQuestionText()">Ný Spurning Text</button>
+		<button class="btn btn-default" ng-click="addCourseQuestionMultiple()">Ný Spurning Mul</button>
+	</div>
+
 
 	<h4>Kennara Spurningar</h4>
 	<div ng-repeat="question in evaluation.TeacherQuestions">
@@ -30,14 +40,25 @@
 		<div ng-show="question.Type == 'multiple' || question.Type == 'single'">
 			<p>Svarmöguleikar:</p>
 			<ul>
-				<li ng-repeat="answer in question.Answers track by $index">
-					<input ng-model="answer" />
+				<li class="input-group" ng-repeat="answer in question.Answers track by $index">
+					<span class="input-group-addon">
+						<input ng-show="question.Type == 'multiple'" type="checkbox" />
+						<input ng-show="question.Type == 'single'" type="radio" />
+					</span>
+					<input class="form-control" placeholder="New Answer" type="text" ng-model="answer" />
 				</li>
 			</ul>
 			<button class="btn btn-mini" ng-click="addAnswer(question)">Bæta við svarmöguleika</button>
 		</div>
+		</div>
+		<div class="btn-group">
+		<button class="btn btn-default" ng-click="addTeacherQuestionSingle()">Ný Spurning Radio</button>
+		<button class="btn btn-default" ng-click="addTeacherQuestionText()">Ný Spurning Text</button>
+		<button class="btn btn-default" ng-click="addTeacherQuestionMultiple()">Ný Spurning Mul</button>
+	
 	</div>
-	<button class="btn btn-mini" ng-click="addTeacherQuestion()">Bæta við spurningu</button>
+	
+	
 </div>
 
 <button ng-click="submitTemplate()" class="btn btn-success btn-large" style="margin-top:40px;">Submit Template</button>

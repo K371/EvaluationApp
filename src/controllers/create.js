@@ -20,34 +20,76 @@ app.controller("CreateController", [
 			};
 		
 		$scope.submitTemplate = function() {
-			console.log($scope.evaluation);
+			console.log($scope.evaluation.IntroTextIS);
+
 		}
 
 		$scope.addAnswer = function(question) {
-			question.Answers.push("New answer");
+			question.Answers.push("");
 		}
 
-		$scope.addCourseQuestion = function() {
+		$scope.addCourseQuestionSingle = function() {
 			$scope.evaluation.CourseQuestions.push({
 				ID: $scope.evaluation.CourseQuestions.length,
 				TextIS: "",
 				TextEN: "",
 				ImageURL: "",
 				Type: "single",
-				Answers: []
+				Answers: ["", ""]
 			});
 		}
 
-		$scope.addTeacherQuestion = function() {
+		$scope.addCourseQuestionMultiple = function() {
+			$scope.evaluation.CourseQuestions.push({
+				ID: $scope.evaluation.CourseQuestions.length,
+				TextIS: "",
+				TextEN: "",
+				ImageURL: "",
+				Type: "multiple",
+				Answers: ["", ""]
+			});
+		}
+
+		$scope.addCourseQuestionText = function() {
+			$scope.evaluation.CourseQuestions.push({
+				ID: $scope.evaluation.CourseQuestions.length,
+				TextIS: "",
+				TextEN: "",
+				ImageURL: "",
+				Type: "text",
+			});
+		}
+
+		$scope.addTeacherQuestionSingle = function() {
 			$scope.evaluation.TeacherQuestions.push({
 				ID: $scope.evaluation.TeacherQuestions.length,
 				TextIS: "",
 				TextEN: "",
 				ImageURL: "",
 				Type: "single",
-				Answers: []
+				Answers: ["", ""]
 			});
 		}
 
+		$scope.addTeacherQuestionText = function() {
+			$scope.evaluation.TeacherQuestions.push({
+				ID: $scope.evaluation.TeacherQuestions.length,
+				TextIS: "",
+				TextEN: "",
+				ImageURL: "",
+				Type: "text",
+			});
+		}
+
+		$scope.addTeacherQuestionMultiple = function() {
+			$scope.evaluation.TeacherQuestions.push({
+				ID: $scope.evaluation.TeacherQuestions.length,
+				TextIS: "",
+				TextEN: "",
+				ImageURL: "",
+				Type: "multiple",
+				Answers: ["", ""]
+			});
+		}
 	}
 ]);
