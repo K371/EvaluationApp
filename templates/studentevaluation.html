@@ -10,16 +10,11 @@
 				<p> TODO: Implement get </p>
 </div>
 
+<p>Spurning 1: {{evaluation.CourseQuestions[0].TextIS}}</p>
+<ul>
+	<li ng-repeat="questions in evaluation.CourseQuestions[0].Answers">{{questions.TextIS}}</li>
+</ul>
 
-<h1>{{ evaluation.TitleIS }}</h1>
-<input ng-model="evaluation.TitleIS" placeholder="Titillinn á kennslumatinu" class="form-control">
-<div class="form-group">
-	<label for="textareaIntro" class="col-sm-2 control-label">Kynning</label>
-	<div class="col-sm-10">
-		<textarea ng-model="evaluation.IntroTextIS" class="form-control" id="textareaIntro">
-		</textarea>
-	</div>
-</div>
 
 
 

@@ -65,7 +65,7 @@ app.factory("ApiFactory", [
 				return deferred.promise;
 			},
 			getEvaluationById: function(id) {
-				var Url = 'http://project3api.haukurhaf.net/api/v1/evaluationtemplates/' + id;
+				var Url = 'http://dispatch.ru.is/h26/api/v1/evaluationtemplates/' + id;
 				var bitches = $http({	method: 'GET', 
 				url: Url
 				
