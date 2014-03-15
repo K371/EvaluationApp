@@ -94,6 +94,14 @@ app.factory("ApiFactory", [
 					data: evaluation
 				});
 				
+			},
+
+			submitEvaluationTemplate: function(template) {
+				$http({
+					method: 'POST',
+					url: 'http://dispatch.ru.is/h26/api/v1/evaluationtemplates',
+					data: template
+				});
 			}
 		};
 

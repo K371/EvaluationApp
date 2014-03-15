@@ -20,7 +20,7 @@
 						<input ng-show="question.Type == 'multiple'" type="checkbox" />
 						<input ng-show="question.Type == 'single'" type="radio" />
 					</span>
-					<input type="text" class="form-control" placeholder="New Answer" ng-model="answer" />
+					<input type="text" class="form-control" placeholder="New Answer" ng-model="answer.TextIS" />
 				</li>
 			</ul>
 			<button class="btn btn-mini" ng-click="addAnswer(question)">Bæta við svarmöguleika</button>
@@ -45,7 +45,7 @@
 						<input ng-show="question.Type == 'multiple'" type="checkbox" />
 						<input ng-show="question.Type == 'single'" type="radio" />
 					</span>
-					<input class="form-control" placeholder="New Answer" type="text" ng-model="answer" />
+					<input class="form-control" placeholder="New Answer" type="text" ng-model="answer.TextIS" />
 				</li>
 			</ul>
 			<button class="btn btn-mini" ng-click="addAnswer(question)">Bæta við svarmöguleika</button>

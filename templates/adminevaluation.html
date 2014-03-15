@@ -20,6 +20,18 @@
 			
 		</div>
 	</div>
+		<div ng-repeat="question in evaluation.TeacherQuestions">
+		<li>{{question.TextIS}}</li>
+		<div ng-show="question.Type == 'multiple' || question.Type == 'single'">
+			<p>Svarmöguleikar:</p>
+			<ol type="a">
+				<li ng-repeat="answer in question.Answers track by $index">
+					{{answer.TextIS}} </li>
+				
+			</ol>
+			
+		</div>
+	</div>
 	</ol>
 	<div>
 	<h4>Start date</h4>

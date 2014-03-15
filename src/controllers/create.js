@@ -7,35 +7,40 @@ app.controller("CreateController", [
  			$location.path("/");
  		}
  		
-
-
-		
 			$scope.evaluation = {
 				TitleIS: "",
-				TitleEN: "",
+				TitleEN: "English Version is not supported",
 				IntroTextIS: "",
-				IntroTextEN: "",
+				IntroTextEN: "English Version is not supported",
 				CourseQuestions: [],
 				TeacherQuestions: []
 			};
 		
 		$scope.submitTemplate = function() {
-			console.log($scope.evaluation.IntroTextIS);
+			console.log($scope.evaluation);
+			ApiFactory.submitEvaluationTemplate($scope.evaluation);
+			$location.path('#/Admin/');
 
 		}
 
 		$scope.addAnswer = function(question) {
-			question.Answers.push("");
+			question.Answers.push({
+				ID: question.Answers.length,
+				TextIS: "",
+				TextEN: "English Version not supported",
+				ImageURL: "",
+				Weight: 5
+			});
 		}
 
 		$scope.addCourseQuestionSingle = function() {
 			$scope.evaluation.CourseQuestions.push({
 				ID: $scope.evaluation.CourseQuestions.length,
 				TextIS: "",
-				TextEN: "",
+				TextEN: "English Version is not supported",
 				ImageURL: "",
 				Type: "single",
-				Answers: ["", ""]
+				Answers: []
 			});
 		}
 
@@ -43,10 +48,10 @@ app.controller("CreateController", [
 			$scope.evaluation.CourseQuestions.push({
 				ID: $scope.evaluation.CourseQuestions.length,
 				TextIS: "",
-				TextEN: "",
+				TextEN: "English Version is not supported",
 				ImageURL: "",
 				Type: "multiple",
-				Answers: ["", ""]
+				Answers: []
 			});
 		}
 
@@ -54,7 +59,7 @@ app.controller("CreateController", [
 			$scope.evaluation.CourseQuestions.push({
 				ID: $scope.evaluation.CourseQuestions.length,
 				TextIS: "",
-				TextEN: "",
+				TextEN: "English Version is not supported",
 				ImageURL: "",
 				Type: "text",
 			});
@@ -64,10 +69,10 @@ app.controller("CreateController", [
 			$scope.evaluation.TeacherQuestions.push({
 				ID: $scope.evaluation.TeacherQuestions.length,
 				TextIS: "",
-				TextEN: "",
+				TextEN: "English Version is not supported",
 				ImageURL: "",
 				Type: "single",
-				Answers: ["", ""]
+				Answers: []
 			});
 		}
 
@@ -75,7 +80,7 @@ app.controller("CreateController", [
 			$scope.evaluation.TeacherQuestions.push({
 				ID: $scope.evaluation.TeacherQuestions.length,
 				TextIS: "",
-				TextEN: "",
+				TextEN: "English Version is not supported",
 				ImageURL: "",
 				Type: "text",
 			});
@@ -85,10 +90,10 @@ app.controller("CreateController", [
 			$scope.evaluation.TeacherQuestions.push({
 				ID: $scope.evaluation.TeacherQuestions.length,
 				TextIS: "",
-				TextEN: "",
+				TextEN: "English Version is not supported",
 				ImageURL: "",
 				Type: "multiple",
-				Answers: ["", ""]
+				Answers: []
 			});
 		}
 	}
