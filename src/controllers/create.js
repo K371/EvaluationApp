@@ -19,7 +19,7 @@ app.controller("CreateController", [
 		$scope.submitTemplate = function() {
 			console.log($scope.evaluation);
 			ApiFactory.submitEvaluationTemplate($scope.evaluation);
-			$location.path('#/Admin/');
+			$location.path('#/admin/');
 
 		}
 
