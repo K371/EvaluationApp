@@ -11,6 +11,7 @@ app.controller("HomeController", [
 
  		ApiFactory.getCourses().then(function(data) {
 			$scope.courses = data.data;
+			console.log(data);
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);
 		}, function(updateMessage) {

@@ -2,7 +2,7 @@
 <p>Welcome puny student, do your work </p>
 
 <div>
-	<h2>Spurningar úr námskeiði</h2>
+	<h2>Spurningar úr námskeiðinu</h2>
 
 			<p>Svarmöguleikar:</p>
 			
@@ -12,17 +12,38 @@
 
 <div ng-repeat="questions in evaluation.CourseQuestions">
 <p>{{questions.TextIS}}</p>
-<ul class=""><li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
-	<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" >{{answers.TextIS}}</input></li>
+<ul class="">
+	<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
+		<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" >{{answers.TextIS}}</input>
+	</li>
+
 	<li ng-if="questions.Type == 'text'">
 	<textarea ng-model="ans" name="{{questions.TextIS}}"></textarea></li>
+
+	<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">
+		<input type="checkbox" ng-model="ans" name="{{questions.TextIS}}">{{answers.TextIS}}</input>
+	</li>
 </ul>
 </div>
 
 
+<div ng-repeat="questions in evaluation.TeacherQuestions">
+<p>{{questions.TextIS}}</p>
+<ul class="">
+	<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
+		<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" >{{answers.TextIS}}</input>
+	</li>
 
+	<li ng-if="questions.Type == 'text'">
+	<textarea ng-model="ans" name="{{questions.TextIS}}"></textarea></li>
+
+	<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">
+		<input type="checkbox" ng-model="ans" name="{{questions.TextIS}}">{{answers.TextIS}}</input>
+	</li>
+</ul>
+</div>
+
+<button ng-click="submitEvaluation()" class="btn btn-success btn-large"><i class="icon-white icon-arrow-left"></i>Submit</button>
 
 <button ng-click="redirectBack()" class="btn btn-success btn-large"><i class="icon-white icon-arrow-left"></i> Back to evaluations</button>
-
-
 </div>

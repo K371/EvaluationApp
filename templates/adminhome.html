@@ -2,10 +2,11 @@
 <h2>Evaluation Templates</h2>
 <table class="table table-striped">
 	<tr ng-repeat="evaluation in evaluationtemplates">
-		<td><a ng-href="#/Admin/Evaluation/{{evaluation.ID}}">{{ evaluation.TitleIS }}</a></td>
+		<td><a ng-href="#/Admin/EvaluationTemplate/{{evaluation.ID}}">{{ evaluation.TitleIS }}</a></td>
 	</tr>
 	<tr>
-		<td><a ng-href="#/Admin/Create">Create new template</a></td>
+		<td><a ng-href="#/Admin/Create">
+			<span class="glyphicon glyphicon-plus"></span> Create new template</a></td>
 	</tr>
 </table>
 
@@ -22,9 +23,9 @@
 	<tbody>
 	<tr ng-repeat="evaluation in evaluations">
 		<td>
-			<a ng-href="#/Admin/Evaluation/{{evaluation.ID}}">
+			
 				{{ evaluation.TemplateTitleIS }}
-			</a>
+			
 		</td>
 		<td>
 		{{evaluation.Status}}

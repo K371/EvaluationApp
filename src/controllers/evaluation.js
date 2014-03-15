@@ -11,6 +11,7 @@ app.controller("EvaluationController", [
  		$scope.endDate = "";
  		$scope.endTime = "";
 
+
 		/* Only works for students atm, must use LogInFactory to determine role */
 		$scope.redirectBack = function(){
 			if(LogInFactory.getRole() === "student")
@@ -39,8 +40,6 @@ app.controller("EvaluationController", [
 		}
 
 		$scope.submitEvaluation = function(){
-
-			//ApiFactory.addEvaluation();
 			var startDateTime = $scope.startDate + "T" + $scope.startTime + ":00.0000000+00:00";
 			var endDateTime = $scope.endDate + "T" + $scope.endTime + ":00.0000000+00:00";
 			var submission = {

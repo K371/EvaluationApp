@@ -21,7 +21,7 @@ app.config(function($routeProvider) {
 		controller: "HomeController"
 	}).when("/Admin/Evaluation/:evaluationID", {
 		templateUrl: "templates/adminevaluation.html", 		/* admin evaluation page */
-		controller: "EvaluationController"
+		controller: "StudentEvaluationController"
 	}).when("/Admin/Create", {
 		templateUrl: "templates/create.html", 		/* admin evaluation page */
 		controller: "CreateController"
@@ -30,6 +30,9 @@ app.config(function($routeProvider) {
 		controller: "EvaluationController" 
 	}).when("/Student/Evaluation/:evaluationID", {			/* student evaluation page */
 		templateUrl: "templates/studentevaluation.html",
+		controller: "StudentEvaluationController" 				/* temp using same controller */
+	}).when("/Admin/EvaluationTemplate/:evaluationID", {			/* student evaluation page */
+		templateUrl: "templates/adminevaluation.html",
 		controller: "EvaluationController" 				/* temp using same controller */
 	}).when("/", {											/* if nothing fits */
 		templateUrl: "templates/login.html",
