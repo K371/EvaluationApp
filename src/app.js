@@ -25,9 +25,6 @@ app.config(function($routeProvider) {
 	}).when("/Admin/Create", {
 		templateUrl: "templates/create.html", 		/* admin evaluation page */
 		controller: "CreateController"
-	}).when("/evaluation/", {
-		templateUrl: "templates/evaluation.html",	 		/* does nothing atm */
-		controller: "EvaluationController" 
 	}).when("/Student/Evaluation/:evaluationID", {			/* student evaluation page */
 		templateUrl: "templates/studentevaluation.html",
 		controller: "StudentEvaluationController" 				/* temp using same controller */
@@ -37,5 +34,11 @@ app.config(function($routeProvider) {
 	}).when("/", {											/* if nothing fits */
 		templateUrl: "templates/login.html",
 		controller: "LogInController",
+	}).when("/Courses", {											/* if nothing fits */
+		templateUrl: "templates/courses.html",
+		controller: "CourseController",
+	}).when("/Courses/:courseID", {											/* if nothing fits */
+		templateUrl: "templates/courseevaluations.html",
+		controller: "CourseEvaluationController",
 	}).otherwise({ redirectTo: "/"});
 });

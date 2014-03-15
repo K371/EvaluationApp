@@ -40,7 +40,14 @@ app.controller("EvaluationController", [
 		}
 
 		$scope.submitEvaluation = function(){
-			
+			var startDateTime = $scope.startDate + "T" + $scope.startTime + ":00.0000000+00:00";
+			var endDateTime = $scope.endDate + "T" + $scope.endTime + ":00.0000000+00:00";
+			var submission = {
+				TemplateID: evaluationID,
+				StartDate: startDateTime,
+				EndDate: endDateTime
+			}
+			ApiFactory.addEvaluation(submission);
 			$location.path('/Student');
 		}
 

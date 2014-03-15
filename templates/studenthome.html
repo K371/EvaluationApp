@@ -10,6 +10,22 @@
 		</tr>
 	</thead>
 	<tbody>
+	<tr ng-repeat="evaluation in evaluations" ng-show="evaluation.Status == 'new'">
+		<td>
+			<a ng-href="#/Student/Evaluation/{{evaluation.ID}}">
+				{{ evaluation.TemplateTitleIS  }}
+			</a>
+		</td>
+		<td>
+		{{evaluation.Status}}
+		</td>
+		<td>
+			{{ evaluation.StartDate | date : 'dd. MMMM yyyy - HH:MM' }}
+		</td>
+		<td>
+			{{ evaluation.EndDate | date : 'dd. MMMM yyyy - HH:MM' }}
+		</td>
+	</tr>
 	<tr ng-repeat="evaluation in evaluations" ng-show="evaluation.Status == 'open'">
 		<td>
 			<a ng-href="#/Student/Evaluation/{{evaluation.ID}}">
@@ -47,3 +63,4 @@
 <ul>
 		<li ng-repeat="course in courses">{{course.CourseID}}</li>
 </ul>
+<a ng-href="#/Courses">Courses</a>

@@ -11,6 +11,20 @@ app.controller("HomeController", [
  			$location.path("/admin");
  		}
  		
+ 		$scope.getMyEvals = function(){
+ 			$http({	method: 'GET', 
+					url: 'http://dispatch.ru.is/h26/api/v1/courses/T-427-WEPO/20141/evaluations/4'
+				
+				}).
+    			success(function(data, status, headers, config) {
+      				console.log(data);
+    			}).
+		    		error(function(data, status, headers, config) {
+		      		// called asynchronously if an error occurs
+		      		// or server returns response with an error status.
+		    	});
+ 		}
+
  		$scope.firstname = firstname;
 
  		ApiFactory.getCourses().then(function(data) {
