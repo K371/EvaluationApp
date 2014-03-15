@@ -4,52 +4,49 @@ app.controller("HomeController", [
 		var token = LogInFactory.getToken();
 		var role = LogInFactory.getRole();
 		var firstname = LogInFactory.getFirstName();
+		
  		if(token === ""){
  			$location.path("/");
  		}
  		if (role === "admin") {
  			$location.path("/admin");
  		}
- 		
- 		$scope.getMyEvals = function(){
- 			$http({	method: 'GET', 
-					url: 'http://dispatch.ru.is/h26/api/v1/courses/T-427-WEPO/20141/evaluations/4'
-				
-				}).
-    			success(function(data, status, headers, config) {
-      				console.log(data);
-    			}).
-		    		error(function(data, status, headers, config) {
-		      		// called asynchronously if an error occurs
-		      		// or server returns response with an error status.
-		    	});
- 		}
+ 		var temp;
 
  		$scope.firstname = firstname;
 
- 		ApiFactory.getCourses().then(function(data) {
-			$scope.courses = data.data;
+		ApiFactory.getMyEvaluations().then(function(data) {
+			
+			temp = data.data;
+			
+			$scope.evaluations = temp;
+		
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);
 		}, function(updateMessage) {
 			console.log("Update: " + updateMessage);
 		});
 
-		ApiFactory.getEvaluationTemplates().then(function(data) {
-			$scope.evaluationtemplates = data.data;
+		var count = 0;
+		$scope.str = "";
+		$scope.whatEval = function(evaluation){
+			
+			if(count < 8){
+				
+			//console.log(evaluation.ID);
+			console.log(++count);
+		ApiFactory.getEvaluationById(evaluation.ID).then(function(data){
+				$scope.str = data.data.TemplateTitleIS;
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);
 		}, function(updateMessage) {
 			console.log("Update: " + updateMessage);
 		});
-
-		ApiFactory.getAllEvaluations().then(function(data) {
-			$scope.evaluations = data.data;
-		}, function(errorMessage) {
-			console.log("Error: " + errorMessage);
-		}, function(updateMessage) {
-			console.log("Update: " + updateMessage);
-		});
+			
+			
+		}
+	}
+	
 
 
 	}

@@ -3,64 +3,32 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<td>Course Name</td>
+			<td>Course ID</td>
 			<td>Name</td>
-			<td>Status</td>
-			<td>Start</td>
 			<td>Ends</td>
 		</tr>
 	</thead>
 	<tbody>
-	<tr ng-repeat="evaluation in evaluations" ng-show="evaluation.Status == 'new'">
+	<tr ng-repeat="evaluation in evaluations">
 		<td>
 			<a ng-href="#/Student/Evaluation/{{evaluation.ID}}">
-				{{ evaluation.TemplateTitleIS  }}
+			{{whatEval(evaluation)}}{{str}}
 			</a>
 		</td>
 		<td>
-		{{evaluation.Status}}
+		{{evaluation.CourseID}}
 		</td>
 		<td>
-			{{ evaluation.StartDate | date : 'dd. MMMM yyyy - HH:MM' }}
+			{{evaluation.CourseNameIS}}
 		</td>
 		<td>
-			{{ evaluation.EndDate | date : 'dd. MMMM yyyy - HH:MM' }}
+			
 		</td>
 	</tr>
-	<tr ng-repeat="evaluation in evaluations" ng-show="evaluation.Status == 'open'">
-		<td>
-			<a ng-href="#/Student/Evaluation/{{evaluation.ID}}">
-				{{ evaluation.TemplateTitleIS  }}
-			</a>
-		</td>
-		<td>
-		{{evaluation.Status}}
-		</td>
-		<td>
-			{{ evaluation.StartDate | date : 'dd. MMMM yyyy - HH:MM' }}
-		</td>
-		<td>
-			{{ evaluation.EndDate | date : 'dd. MMMM yyyy - HH:MM' }}
-		</td>
-	</tr>
-	<tr ng-repeat="evaluation in evaluations" ng-show="evaluation.Status == 'closed'">
-		<td>
-			<a ng-href="#/Student/Evaluation/{{evaluation.ID}}">
-				{{ evaluation.TemplateTitleIS  }}
-			</a>
-		</td>
-		<td>
-		{{evaluation.Status}}
-		</td>
-		<td>
-			{{ evaluation.StartDate | date : 'dd. MMMM yyyy - HH:MM' }}
-		</td>
-		<td>
-			{{ evaluation.EndDate | date : 'dd. MMMM yyyy - HH:MM' }}
-		</td>
+	
 	</tr>
 	</tbody>
 </table>
 <ul>
-		<li ng-repeat="course in courses">{{course.CourseID}}</li>
-</ul>
-<a ng-href="#/Courses">Courses</a>
+		

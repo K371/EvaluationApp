@@ -71,6 +71,22 @@ app.factory("ApiFactory", [
 		    	});
     			return evaluations;
 			},
+
+			getMyEvaluations: function() {
+				var evaluations = $http({	method: 'GET', 
+					url: 'http://dispatch.ru.is/h26/api/v1/my/evaluations'
+				
+				}).
+    			success(function(data, status, headers, config) {
+      				return data;
+    			}).
+		    		error(function(data, status, headers, config) {
+		      		// called asynchronously if an error occurs
+		      		// or server returns response with an error status.
+		    	});
+    			return evaluations;
+			},
+
 			getEvaluationTemplateById: function(id) {
 				var Url = 'http://dispatch.ru.is/h26/api/v1/evaluationtemplates/' + id;
 				var bitches = $http({	method: 'GET', 
