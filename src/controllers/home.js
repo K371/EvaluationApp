@@ -9,9 +9,15 @@ app.controller("HomeController", [
  		
  		$scope.firstname = firstname;
 
+ 		ApiFactory.getCourses().then(function(data) {
+			$scope.courses = data.data;
+		}, function(errorMessage) {
+			console.log("Error: " + errorMessage);
+		}, function(updateMessage) {
+			console.log("Update: " + updateMessage);
+		});
 
 		ApiFactory.getEvaluationTemplates().then(function(data) {
-			console.log(data)
 			$scope.evaluationtemplates = data.data;
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);

@@ -102,7 +102,21 @@ app.factory("ApiFactory", [
 					url: 'http://dispatch.ru.is/h26/api/v1/evaluationtemplates',
 					data: template
 				});
+			},
+
+			getCourses: function() {
+				var promise = $http({
+					method: 'GET',
+					url: 'http://dispatch.ru.is/h26/api/v1/my/courses'
+				}).success(function(data, status, headers, config) {
+      				return data;
+    			}).
+		    	error(function(data, status, headers, config) {
+		      
+		    	});
+		    	return promise;
 			}
+
 		};
 
 	},

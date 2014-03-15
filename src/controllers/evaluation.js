@@ -22,7 +22,6 @@ app.controller("EvaluationController", [
 		
 		if(evaluationID !== undefined) {
 			ApiFactory.getEvaluationTemplateById(evaluationID).then(function(response) {
-				console.log("Success, data: ", response.data);
 				$scope.evaluation = response.data;
 			}, function(errorMessage) {
 				console.log("Error fetching evaluation: " + errorMessage);
