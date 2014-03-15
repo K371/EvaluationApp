@@ -45,10 +45,16 @@
 						<input ng-show="question.Type == 'multiple'" type="checkbox" />
 						<input ng-show="question.Type == 'single'" type="radio" />
 					</span>
+					<div class ="single-answer">
 					<input class="form-control" placeholder="New Answer" type="text" ng-model="answer.TextIS" />
+					<input  class="form-control" placeholder="Image url (optional)" type="text" ng-model="answer.ImageURL" />
+					</div>
 				</li>
 			</ul>
+		<div class="btn-group">
 			<button class="btn btn-mini" ng-click="addAnswer(question)">Bæta við svarmöguleika</button>
+		</div>
+
 		</div>
 		</div>
 		<div class="btn-group">
@@ -62,3 +68,5 @@
 </div>
 
 <button ng-click="submitTemplate()" class="btn btn-success btn-large" style="margin-top:40px;">Submit Template</button>
+
+<button ng-click="redirectBack()" class="btn btn-success btn-large" style="margin-top:40px;"><i class="icon-white icon-arrow-left"></i> Back to evaluations</button>

@@ -33,6 +33,16 @@ app.controller("CreateController", [
 			});
 		}
 
+		$scope.addPicture = function(question){
+			question.Answers.push({
+				ID: question.Answers.length,
+				TextIS: "",
+				TextEN: "English Version not supported",
+				ImageURL: "#",
+				Weight: 5
+			});
+		}
+
 		$scope.addCourseQuestionSingle = function() {
 			$scope.evaluation.CourseQuestions.push({
 				ID: $scope.evaluation.CourseQuestions.length,
