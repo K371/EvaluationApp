@@ -35,3 +35,8 @@ ul li{
 textarea{
 	width: 400px;
 }
+
+.red:hover > *{
+	color: #B80000;
+
+}

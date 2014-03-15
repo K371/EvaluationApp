@@ -18,7 +18,7 @@ app.config(function($routeProvider) {
 		controller: "HomeController",
 	}).when("/admin", {
 		templateUrl: "templates/adminhome.html",			/* admin home */
-		controller: "HomeController"
+		controller: "AdminHomeController"
 	}).when("/Admin/Evaluation/:evaluationID", {
 		templateUrl: "templates/adminevaluation.html", 		/* admin evaluation page */
 		controller: "StudentEvaluationController"

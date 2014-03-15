@@ -2,16 +2,19 @@ app.controller("HomeController", [
 	"$scope", "ApiFactory", "LogInFactory", "$location", "$http",
 	function($scope, ApiFactory, LogInFactory, $location, $http) {
 		var token = LogInFactory.getToken();
+		var role = LogInFactory.getRole();
 		var firstname = LogInFactory.getFirstName();
  		if(token === ""){
  			$location.path("/");
+ 		}
+ 		if (role !== "student") {
+ 			$location.path("/admin");
  		}
  		
  		$scope.firstname = firstname;
 
  		ApiFactory.getCourses().then(function(data) {
 			$scope.courses = data.data;
-			console.log(data);
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);
 		}, function(updateMessage) {

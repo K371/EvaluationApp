@@ -6,6 +6,7 @@ app.controller("StudentEvaluationController", [
 		if(token === ""){
  			$location.path("/");
  		}
+ 		
  		$scope.startDate = "";
  		$scope.startTime = "";
  		$scope.endDate = "";
