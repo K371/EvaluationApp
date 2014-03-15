@@ -1,5 +1,5 @@
 <h1>{{ evaluation.TitleIS }}</h1>
-<p>Welcome puny student, do your work </p>
+
 
 <div>
 	<h2>Spurningar úr námskeiðinu</h2>
@@ -15,7 +15,7 @@
 <p>{{questions.TextIS}}</p>
 <ul class="">
 	<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
-	<img border="0" ng-show="answers.ImageURL != '' " src="{{answers.ImageURL}}" alt="Pulpit rock" width="304" height="228">
+	<img border="0" ng-show="answers.ImageURL != '' " src="{{answers.ImageURL}}" alt="Image not found" height="100">
 		<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" >{{answers.TextIS}}</input>
 	</li>
 
