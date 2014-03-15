@@ -7,7 +7,7 @@ app.controller("AdminHomeController", [
  		if(token === ""){
  			$location.path("/");
  		}
- 		if (role !== "admin") {
+ 		if (role === "student") {
  			$location.path("/Student");
 
  		}

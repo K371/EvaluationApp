@@ -6,7 +6,7 @@ app.controller("StudentEvaluationController", [
 		if(token === ""){
  			$location.path("/");
  		}
- 		
+
  		$scope.startDate = "";
  		$scope.startTime = "";
  		$scope.endDate = "";
@@ -53,7 +53,7 @@ app.controller("StudentEvaluationController", [
 				StartDate: startDateTime,
 				EndDate: endDateTime
 			}
-			ApiFactory.addEvaluation(submission);
+			//ApiFactory.addEvaluation(submission);
 		}
 
 		$scope.addAnswer = function(question) {
