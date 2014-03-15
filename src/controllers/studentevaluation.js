@@ -26,6 +26,7 @@ app.controller("StudentEvaluationController", [
 		if(evaluationID !== undefined) {
 			ApiFactory.getEvaluationById(evaluationID).then(function(response) 
 			{
+				console.log(response);
 				// success get templateid from evaluationid
 				ApiFactory.getEvaluationTemplateById(response.data.TemplateID).then(function(template){
 					$scope.evaluation = template.data;
@@ -46,7 +47,8 @@ app.controller("StudentEvaluationController", [
 		$scope.submitEvaluation = function(){
 
 			//ApiFactory.addEvaluation();
-			var answers = new Array();
+			//var answers = new Array();
+
 			
 			
 			//ApiFactory.addEvaluation(submission);
