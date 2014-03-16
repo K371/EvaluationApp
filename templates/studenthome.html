@@ -12,7 +12,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<tr ng-repeat="evaluation in evaluations">
+	<tr ng-repeat="evaluation in evaluations" ng-if="sitRep[evaluation.ID] == 'open'">
 		<td>
 			<a ng-show="sitRep[evaluation.ID] == 'open'" ng-href="#/Student/Evaluation/{{evaluation.CourseID}}/{{evaluation.ID}}">
 			{{names[evaluation.ID]}}

@@ -1,56 +1,51 @@
 <h1>{{ evaluation.TitleIS }}</h1>
 
-
-<div>
-	<h2>Spurningar úr námskeiðinu</h2>
-
-			<p>Svarmöguleikar:</p>
-			
-				<p style="font-weight:bold"> The old form is only visible by admin from now on </p>
-				<p> TODO: Implement get </p>
-</div>
+<h2>Spurningar úr námskeiðinu</h2>
 
 <div ng-repeat="questions in evaluation.CourseQuestions">
 
-<p>{{questions.TextIS}}</p>
-<ul>
-	<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
-	<img border="0" ng-if="answers.ImageURL != '' " src="{{answers.ImageURL}}" alt="Image not found" height="100">
-		<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" > {{answers.TextIS}}</input>
-	</li>
+	<p>{{questions.TextIS}}</p>
+	<ul>
+		<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
+			<img class="img-responsive img-rounded" ng-if="answers.ImageURL != '' " src="{{answers.ImageURL}}" alt="Image not found">
+			<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" > {{answers.TextIS}}</input>
+		</li>
 
-	<li ng-if="questions.Type == 'text'">
-	<textarea ng-model="ans" name="{{questions.TextIS}}"></textarea></li>
+		<li ng-if="questions.Type == 'text'">
+			<textarea class="form-control" ng-model="ans" name="{{questions.TextIS}}"></textarea>
+		</li>
 
-	<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">
-		<input type="checkbox" ng-model="ans" name="{{questions.TextIS}}"> {{answers.TextIS}}</input>
-	</li>
-</ul>
+		<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">
+			<input type="checkbox" ng-model="ans" name="{{questions.TextIS}}"> {{answers.TextIS}}</input>
+		</li>
+	</ul>
 </div>
 
 <h2>Spurningar um kennara</h2>
 <div class="teacherSection" ng-repeat="teacher in teachers">
 	<h4 class="teacherName">{{teacher.FullName}}</h4>
 	
-	<img ng-show="teacher.ImageURL != '' " src="{{teacher.ImageURL}}">
+	<img class="img-responsive img-thumbnail" ng-show="teacher.ImageURL != '' " src="{{teacher.ImageURL}}">
 	
-<div ng-repeat="questions in evaluation.TeacherQuestions">
-<p>{{questions.TextIS}}</p>
-<ul class="">
-	<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
-		<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" > {{answers.TextIS}}</input>
-	</li>
+	<div ng-repeat="questions in evaluation.TeacherQuestions">
+	<p>{{questions.TextIS}}</p>
+		<ul class="">
+			<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
+				<input type="radio" name="{{questions.TextIS}}" value="{{answers.TextIS}}" > {{answers.TextIS}}</input>
+			</li>
 
-	<li ng-if="questions.Type == 'text'">
-	<textarea ng-model="ans" name="{{questions.TextIS}}"></textarea></li>
+			<li ng-if="questions.Type == 'text'">
+				<textarea class="form-control" ng-model="ans" name="{{questions.TextIS}}"></textarea>
+			</li>
 
-	<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">
-		<input type="checkbox" ng-model="ans" name="{{questions.TextIS}}"> {{answers.TextIS}}</input>
-	</li>
-</ul>
+			<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">
+				<input type="checkbox" ng-model="ans" name="{{questions.TextIS}}"> {{answers.TextIS}}</input>
+			</li>
+		</ul>
+	</div>
 </div>
-</div>
-<button id="submitBtn" ng-click="submitEvaluation()" class="btn btn-success btn-large"><i class="icon-white icon-arrow-left"></i>Submit</button>
+<div class="alert alert-success" ng-show="showIt == true">Submitted! Thank you for your contribution!</div>
+<button ng-show="showIt == false" id="submitBtn" ng-click="submitEvaluation()" class="btn btn-success btn-large"><i class="icon-white icon-arrow-left"></i>Submit</button>
 
 <!--<button ng-click="redirectBack()" class="btn btn-success btn-large"><i class="icon-white icon-arrow-left"></i> Back to evaluations</button>
 </div>-->

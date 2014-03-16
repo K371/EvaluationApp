@@ -6,7 +6,7 @@
 	
 	<h4>Spurningar úr námskeiði</h4>
 	<ol>
-	<div ng-repeat="question in evaluation.CourseQuestions">
+	<div ng-repeat="question in evaluation.CourseQuestions" >
 		<li>{{question.TextIS}}</li>
 		<div ng-show="question.Type == 'multiple' || question.Type == 'single'">
 			<p>Svarmöguleikar:</p>

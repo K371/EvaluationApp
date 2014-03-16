@@ -1,9 +1,10 @@
 app.controller("StudentEvaluationController", [
-	"$scope", "ApiFactory", "$routeParams", "LogInFactory", "$http", "$location",
-	function($scope, ApiFactory, $routeParams, LogInFactory, $http, $location) {
+	"$scope", "ApiFactory", "$routeParams", "LogInFactory", "$http", "$location", "$timeout",
+	function($scope, ApiFactory, $routeParams, LogInFactory, $http, $location, $timeout) {
 		var evaluationID = $routeParams.evaluationID;
 		var courseID = $routeParams.courseID;
 		var token = LogInFactory.getToken();
+		$scope.showIt = false;
 		if(token === ""){
  			$location.path("/");
  		}
@@ -57,13 +58,16 @@ app.controller("StudentEvaluationController", [
 		}
 
 		$scope.submitEvaluation = function(){
-
+			console.log("The Shit We wanna send nigguh!");
+			$scope.showIt = true;
 			//ApiFactory.addEvaluation();
 			//var answers = new Array();
 
 			
 			
 			//ApiFactory.addEvaluation(submission);
+
+			$timeout(function(){$location.path("/Student");},1500);
 		}
 
 		
