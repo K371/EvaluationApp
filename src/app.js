@@ -19,13 +19,10 @@ app.config(function($routeProvider) {
 	}).when("/admin", {
 		templateUrl: "templates/adminhome.html",			/* admin home */
 		controller: "AdminHomeController"
-	}).when("/Admin/Evaluation/:evaluationID", {
-		templateUrl: "templates/adminevaluation.html", 		/* admin evaluation page */
-		controller: "StudentEvaluationController"
 	}).when("/Admin/Create", {
 		templateUrl: "templates/create.html", 		/* admin evaluation page */
 		controller: "CreateController"
-	}).when("/Student/Evaluation/:evaluationID", {			/* student evaluation page */
+	}).when("/Student/Evaluation/:courseID/:evaluationID", {			/* student evaluation page */
 		templateUrl: "templates/studentevaluation.html",
 		controller: "StudentEvaluationController" 				/* temp using same controller */
 	}).when("/Admin/EvaluationTemplate/:evaluationID", {			/* student evaluation page */

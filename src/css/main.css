@@ -1,5 +1,5 @@
 #loginWindow{
-	border: 1px solid #e7e7e7;;
+	border: 1px solid #e7e7e7;
 	top: 100px;
 	width: 230px;
 	float:none;
@@ -40,9 +40,30 @@ textarea{
 	color: #B80000;
 
 }
+.redd{
+	color: #B80000;
+}
+.green{
+	color: green;
+}
+
+td:nth-child(6), td:nth-child(7){
+	text-align: center;
+}
 
 img{
 	border-radius: 15px;
 	margin-bottom: 5px;
 	clear: both;
+}
+
+#submitBtn{
+	margin-bottom: 40px;
+}
+
+.teacherName{
+	text-decoration: underline;
+}
+.teacherSection{
+
 }

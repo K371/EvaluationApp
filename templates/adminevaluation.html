@@ -1,7 +1,5 @@
 <h2>{{ evaluation.TitleIS }}</h2>
 
-
-
 	<label for="textareaIntro" class="col-sm-2 control-label">Kynning</label>
 	
 	<p>{{evaluation.IntroTextIS}}</p>
@@ -20,6 +18,9 @@
 			
 		</div>
 	</div>
+</ol>
+	<h4>Spurningar um kennara</h4>
+	<ol>
 		<div ng-repeat="question in evaluation.TeacherQuestions">
 		<li>{{question.TextIS}}</li>
 		<div ng-show="question.Type == 'multiple' || question.Type == 'single'">

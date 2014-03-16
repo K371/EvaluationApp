@@ -3,28 +3,39 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<td>Title</td>
 			<td>Course Name</td>
-			<td>Course ID</td>
-			<td>Name</td>
-			<td>Ends</td>
+			<td>Course</td>
+			<td>Begins</td>
+			<td>Closes</td>
+			<td>Status</td>
 		</tr>
 	</thead>
 	<tbody>
 	<tr ng-repeat="evaluation in evaluations">
 		<td>
-			<a ng-href="#/Student/Evaluation/{{evaluation.ID}}">
-			{{evaluation.ID}} {{names[evaluation.ID]}}
-			
+			<a ng-show="sitRep[evaluation.ID] == 'open'" ng-href="#/Student/Evaluation/{{evaluation.CourseID}}/{{evaluation.ID}}">
+			{{names[evaluation.ID]}}
 			</a>
-		</td>
-		<td>
-		{{evaluation.CourseID}}
+			<a ng-show="sitRep[evaluation.ID] == 'closed'">{{names[evaluation.ID]}}</a>
 		</td>
 		<td>
 			{{evaluation.CourseNameIS}}
 		</td>
 		<td>
-			
+		{{evaluation.CourseID}}
+		</td>
+		<td>
+			{{startDate[evaluation.ID] | date : 'dd.MM.yy - HH:MM'}}
+		</td>
+		<td>
+			{{endDate[evaluation.ID] | date : 'dd.MM.yy - HH:MM'}}
+		</td>
+		<td class="redd" ng-show="sitRep[evaluation.ID] == 'closed'">
+			Closed
+		</td>
+		<td class="green" ng-show="sitRep[evaluation.ID] == 'open'">
+			Open
 		</td>
 	</tr>
 	

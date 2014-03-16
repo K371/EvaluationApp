@@ -2,6 +2,7 @@ app.controller("StudentEvaluationController", [
 	"$scope", "ApiFactory", "$routeParams", "LogInFactory", "$http", "$location",
 	function($scope, ApiFactory, $routeParams, LogInFactory, $http, $location) {
 		var evaluationID = $routeParams.evaluationID;
+		var courseID = $routeParams.courseID;
 		var token = LogInFactory.getToken();
 		if(token === ""){
  			$location.path("/");
@@ -26,14 +27,25 @@ app.controller("StudentEvaluationController", [
 		if(evaluationID !== undefined) {
 			ApiFactory.getEvaluationById(evaluationID).then(function(response) 
 			{
-				console.log(response);
+				//console.log(response);
 				// success get templateid from evaluationid
 				ApiFactory.getEvaluationTemplateById(response.data.TemplateID).then(function(template){
 					$scope.evaluation = template.data;
+					console.log(template.data.CourseQuestions.length);
 				}, function(errorMessage){
 					console.log("Error fetching evaluation: " + errorMessage);
 				});
 				// ----------------------------------------
+			}, 
+
+			function(errorMessage) {
+				console.log("Error fetching evaluation: " + errorMessage);
+			});
+
+			ApiFactory.getTeachers(courseID).then(function(response) 
+			{
+				$scope.teachers = response.data;
+				console.log(response.data.length);	
 			}, 
 
 			function(errorMessage) {
@@ -54,19 +66,6 @@ app.controller("StudentEvaluationController", [
 			//ApiFactory.addEvaluation(submission);
 		}
 
-		$scope.addAnswer = function(question) {
-			question.Answers.push("New answer");
-		}
-
-		$scope.addCourseQuestion = function() {
-			$scope.evaluation.CourseQuestions.push({
-				ID: $scope.evaluation.CourseQuestions.length,
-				TextIS: "",
-				TextEN: "",
-				ImageURL: "",
-				Type: "single",
-				Answers: []
-			});
-		}
+		
 	}
 ])
