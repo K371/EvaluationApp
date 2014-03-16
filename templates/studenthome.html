@@ -13,7 +13,8 @@
 	<tr ng-repeat="evaluation in evaluations">
 		<td>
 			<a ng-href="#/Student/Evaluation/{{evaluation.ID}}">
-			{{whatEval(evaluation)}}{{str}}
+			{{evaluation.ID}} {{names[evaluation.ID]}}
+			
 			</a>
 		</td>
 		<td>

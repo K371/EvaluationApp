@@ -15,11 +15,17 @@ app.controller("HomeController", [
 
  		$scope.firstname = firstname;
 
+
 		ApiFactory.getMyEvaluations().then(function(data) {
 			
 			temp = data.data;
 			
 			$scope.evaluations = temp;
+
+			    angular.forEach($scope.evaluations,function(value,index){
+                //console.log(value.ID);
+                //console.log(value);
+            })
 		
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);
@@ -27,27 +33,34 @@ app.controller("HomeController", [
 			console.log("Update: " + updateMessage);
 		});
 
-		var count = 0;
-		$scope.str = "";
-		$scope.whatEval = function(evaluation){
-			
-			if(count < 8){
-				
-			//console.log(evaluation.ID);
-			console.log(++count);
-		ApiFactory.getEvaluationById(evaluation.ID).then(function(data){
-				$scope.str = data.data.TemplateTitleIS;
+	
+
+			$scope.names = [];
+	
+
+
+			ApiFactory.getAllEvaluations().then(function(data3) {
+				//console.log(data3.data);
+
+				 angular.forEach(data3.data,function(value,index){
+				 	//console.log(value.ID);
+				 	//console.log(value.TemplateTitleIS);
+				 	$scope.names[value.ID] = value.TemplateTitleIS;
+
+				})
+
+
 		}, function(errorMessage) {
 			console.log("Error: " + errorMessage);
 		}, function(updateMessage) {
 			console.log("Update: " + updateMessage);
+		
+		
 		});
-			
-			
-		}
-	}
-	
 
+
+
+	
 
 	}
 ]);
