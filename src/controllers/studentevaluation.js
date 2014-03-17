@@ -16,11 +16,9 @@ app.controller("StudentEvaluationController", [
 
  		$scope.courseAns = [];
  		$scope.teacherAns = [];
- 		$scope.teacherText = new Array();
- 		var i = 0;
- 		$scope.incr = function(){
- 			return i++;
- 		}
+ 		$scope.ans = [];
+ 		
+ 		
 
 		/* Only works for students atm, must use LogInFactory to determine role */
 		$scope.redirectBack = function(){
@@ -39,6 +37,7 @@ app.controller("StudentEvaluationController", [
 				ApiFactory.getEvaluationTemplateById(response.data.TemplateID).then(function(template){
 					$scope.evaluation = template.data;
 					console.log(template.data.CourseQuestions.length);
+					
 				}, function(errorMessage){
 					console.log("Error fetching evaluation: " + errorMessage);
 				});
@@ -52,7 +51,12 @@ app.controller("StudentEvaluationController", [
 			ApiFactory.getTeachers(courseID).then(function(response) 
 			{
 				$scope.teachers = response.data;
-				console.log(response.data);	
+				for (var i in response.data){
+						$scope.teacherAns.push(new Array());
+					}
+				console.log(response.data);
+
+
 			}, 
 
 			function(errorMessage) {
