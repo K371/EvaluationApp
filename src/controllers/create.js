@@ -16,6 +16,14 @@ app.controller("CreateController", [
 				TeacherQuestions: []
 			};
 		
+		$scope.redirectBack = function(){
+			if(LogInFactory.getRole() === "student")
+			$location.path('/Student');
+			if(LogInFactory.getRole() === "admin")
+			$location.path('/admin');
+
+		}
+
 		$scope.submitTemplate = function() {
 			console.log($scope.evaluation);
 			ApiFactory.submitEvaluationTemplate($scope.evaluation);
