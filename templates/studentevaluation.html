@@ -13,7 +13,7 @@
 		</li>
 
 		<li ng-if="questions.Type == 'text'">
-			<textarea class="form-control" ng-model="ans" name="{{questions.TextIS}}"></textarea>
+			<textarea class="form-control" ng-model="ans[questions.ID]" name="{{questions.TextIS}}"></textarea>
 		</li>
 
 		<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">

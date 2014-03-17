@@ -14,7 +14,7 @@ app.controller("StudentEvaluationController", [
  		$scope.endDate = "";
  		$scope.endTime = "";
 
- 	
+ 		$scope.ans = [];
 
 		/* Only works for students atm, must use LogInFactory to determine role */
 		$scope.redirectBack = function(){
@@ -58,7 +58,7 @@ app.controller("StudentEvaluationController", [
 		}
 
 		$scope.submitEvaluation = function(){
-			console.log("The Shit We wanna send nigguh!");
+			console.log($scope.ans);
 			$scope.showIt = true;
 			//ApiFactory.addEvaluation();
 			//var answers = new Array();
