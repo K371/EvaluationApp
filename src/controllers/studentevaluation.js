@@ -46,7 +46,7 @@ app.controller("StudentEvaluationController", [
 			ApiFactory.getTeachers(courseID).then(function(response) 
 			{
 				$scope.teachers = response.data;
-				console.log(response.data.length);	
+				console.log(response.data);	
 			}, 
 
 			function(errorMessage) {

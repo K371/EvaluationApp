@@ -18,13 +18,13 @@
 		</li>
 
 		<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">
-			<input type="checkbox" ng-model="ans" name="{{questions.TextIS}}"> {{answers.TextIS}}</input>
+			<input type="checkbox" ng-model="ans[questions.ID]" ng-value="answers.TextIS" name="{{questions.TextIS}}"> {{answers.TextIS}}</input>
 		</li>
 	</ul>
 </div>
 
 <h2>Spurningar um kennara</h2>
-<div class="teacherSection" ng-repeat="teacher in teachers">
+<div class="teacherSection" ng-repeat="teacher in teachers track by $index">
 	<h4 class="teacherName">{{teacher.FullName}}</h4>
 	
 	<img class="img-responsive img-thumbnail" ng-show="teacher.ImageURL != '' " src="{{teacher.ImageURL}}">
@@ -33,7 +33,7 @@
 	<p>{{questions.TextIS}}</p>
 		<ul class="">
 			<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
-				<input type="radio" name="{{questions.TextIS}}" ng-model="ans[questions.ID]" ng-value="answers.TextIS" > {{answers.TextIS}}</input>
+				<input type="radio" name="teacher.SSN" ng-model="ans[$index]" ng-value="answers.TextIS" > {{answers.TextIS}}</input>
 			</li>
 
 			<li ng-if="questions.Type == 'text'">
