@@ -34,7 +34,7 @@
 		<ul class="">
 			
 			<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
-				<input type="radio" name="{{teacher.SSN}}" ng-model="ans[fIndex]" ng-value="answers.TextIS" > {{answers.TextIS}}  {{teacher.SSN}}</input>
+				<input type="radio" name="{{teacher.SSN}}" ng-model="ans[fIndex]" ng-value="answers.TextIS" > {{answers.TextIS}}</input>
 			</li>
 		
 			<li ng-if="questions.Type == 'text'">
