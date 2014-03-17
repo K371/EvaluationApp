@@ -15,6 +15,10 @@ app.controller("StudentEvaluationController", [
  		$scope.endTime = "";
 
  		$scope.ans = [];
+ 		var i = 0;
+ 		$scope.incr = function(){
+ 			return i++;
+ 		}
 
 		/* Only works for students atm, must use LogInFactory to determine role */
 		$scope.redirectBack = function(){

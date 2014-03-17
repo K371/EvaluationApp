@@ -24,7 +24,7 @@
 </div>
 
 <h2>Spurningar um kennara</h2>
-<div class="teacherSection" ng-repeat="teacher in teachers track by $index">
+<div class="teacherSection" ng-repeat="(fIndex, teacher) in teachers track by $index">
 	<h4 class="teacherName">{{teacher.FullName}}</h4>
 	
 	<img class="img-responsive img-thumbnail" ng-show="teacher.ImageURL != '' " src="{{teacher.ImageURL}}">
@@ -34,7 +34,7 @@
 		<ul class="">
 			
 			<li ng-if="questions.Type == 'single'" ng-repeat="answers in questions.Answers">
-				<input type="radio" name="teacher.SSN" ng-model="ans[teacher.$index]" ng-value="answers.TextIS" > {{answers.TextIS}}</input>
+				<input type="radio" name="{{teacher.SSN}}" ng-model="ans[fIndex]" ng-value="answers.TextIS" > {{answers.TextIS}}  {{teacher.SSN}}</input>
 			</li>
 		
 			<li ng-if="questions.Type == 'text'">
