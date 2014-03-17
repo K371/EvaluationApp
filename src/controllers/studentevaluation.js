@@ -14,7 +14,9 @@ app.controller("StudentEvaluationController", [
  		$scope.endDate = "";
  		$scope.endTime = "";
 
- 		$scope.ans = [];
+ 		$scope.courseAns = [];
+ 		$scope.teacherAns = [];
+ 		$scope.teacherText = new Array();
  		var i = 0;
  		$scope.incr = function(){
  			return i++;
@@ -62,7 +64,9 @@ app.controller("StudentEvaluationController", [
 		}
 
 		$scope.submitEvaluation = function(){
-			console.log($scope.ans);
+			console.log($scope.courseAns);
+			console.log($scope.teacherAns);
+			console.log($scope.teacherText);
 			$scope.showIt = true;
 			//ApiFactory.addEvaluation();
 			//var answers = new Array();
