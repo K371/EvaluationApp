@@ -12,7 +12,19 @@ app.controller("AdminHomeController", [
 
  		}
  		
- 		
+ 		$http({	method: 'GET', 
+					url: 'http://dispatch.ru.is/h26/api/v1/my/courses/'
+				
+				}).
+    			success(function(data, status, headers, config) {
+      				$scope.courses = data;
+      				console.log(data);
+    			}).
+		    		error(function(data, status, headers, config) {
+		      		// called asynchronously if an error occurs
+		      		// or server returns response with an error status.
+		    	});
+
  		$scope.firstname = firstname;
 
  		ApiFactory.getCourses().then(function(data) {

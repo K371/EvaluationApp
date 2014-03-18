@@ -1,4 +1,34 @@
-<ul>
-		<li ng-repeat="course in courses"><a ng-href="#/Courses/{{course.CourseID}}">{{course.CourseID}}</li>
-</ul>
-
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Course</td>
+			<td>Begins</td>
+			<td>Closes</td>
+			<td>Status</td>
+		</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="evaluation in evaluations">
+		<td>
+			
+			<a ng-href="#/Admin/Evaluation/{{courseID.courseID}}/{{evaluation.ID}}">{{evaluation.TemplateTitleIS}}</a>
+		</td>
+		<td>
+			{{courseID.courseID}}
+		</td>
+		
+		<td>
+			{{evaluation.StartDate | date : 'dd.MM.yy - HH:MM'}}
+		</td>
+		<td>
+			{{evaluation.EndDate | date : 'dd.MM.yy - HH:MM'}}
+		</td>
+		<td>
+			{{evaluation.Status}}
+		</td>
+	</tr>
+	
+	</tr>
+	</tbody>
+</table>

@@ -1,4 +1,10 @@
 <bla id="name" ng-model="firstname">Welcome, Admin</bla>
+<h2>Courses</h2>
+<table class="table table-striped">
+	<tr ng-repeat="course in courses">
+		<td><a ng-href="#/Admin/{{course.CourseID}}">{{ course.CourseID }}</a></td>
+	</tr>
+</table>
 <h2>Evaluation Templates</h2>
 <table class="table table-striped">
 	<tr ng-repeat="evaluation in evaluationtemplates">

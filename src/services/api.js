@@ -135,6 +135,22 @@ app.factory("ApiFactory", [
 		    	return bitches;
 			},
 
+			submitAnswers: function(allAnswers, courseID, evaluationID){
+				var Url = 'http://dispatch.ru.is/h26/api/v1/courses/' + courseID + '/20141/evaluations/' + evaluationID;
+				var bitches = $http({	method: 'POST', 
+				url: Url,
+				data: allAnswers
+				}).
+    			success(function(data, status, headers, config) {
+      				return data;
+    			}).
+		    	error(function(data, status, headers, config) {
+		      // called asynchronously if an error occurs
+		      // or server returns response with an error status.
+		    	});
+		    	return bitches;
+			},
+
 			addEvaluation: function(evaluation) {
 
 				$http({

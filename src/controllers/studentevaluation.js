@@ -4,7 +4,11 @@ app.controller("StudentEvaluationController", [
 		var evaluationID = $routeParams.evaluationID;
 		var courseID = $routeParams.courseID;
 		var token = LogInFactory.getToken();
+		var teacherCount = 0;
+		var courseQuestionCount = 0;
+		var teacherQuestionCount = 0;
 		$scope.showIt = false;
+		$scope.showBad = false;
 		if(token === ""){
  			$location.path("/");
  		}
@@ -36,7 +40,8 @@ app.controller("StudentEvaluationController", [
 				// success get templateid from evaluationid
 				ApiFactory.getEvaluationTemplateById(response.data.TemplateID).then(function(template){
 					$scope.evaluation = template.data;
-					console.log(template.data.CourseQuestions.length);
+					courseQuestionCount = template.data.CourseQuestions.length;
+					teacherQuestionCount = template.data.TeacherQuestions.length;
 					
 				}, function(errorMessage){
 					console.log("Error fetching evaluation: " + errorMessage);
@@ -54,7 +59,7 @@ app.controller("StudentEvaluationController", [
 				for (var i in response.data){
 						$scope.teacherAns.push(new Array());
 					}
-				console.log(response.data);
+				teacherCount = response.data.length;
 
 
 			}, 
@@ -90,9 +95,10 @@ app.controller("StudentEvaluationController", [
 				var tempSSN = "";
 				var tempQID = 0;
 				 	for(value in $scope.teacherAns[teacher]){
-				 
+				 		
 					 	var str = [];
 					 	str = $scope.teacherAns[teacher][value].split('/');
+
 					 	if(tempSSN == ""){
 					 		tempSSN = str[2];
 					 		ssn = tempSSN;
@@ -120,9 +126,23 @@ app.controller("StudentEvaluationController", [
 						});
 					}
 			}
-
+			/*if(allAnswers.length < courseQuestionCount + teacherQuestionCount * teacherCount){
+				console.log("INVALID");
+				$scope.showBad = true;
+				return;
+			}*/
 			console.log(allAnswers);
-			$scope.showIt = true;
+			/*ApiFactory.submitAnswers(allAnswers, courseID, evaluationID).then(function(userObj){
+				
+				console.log(userObj);
+				console.log("Success");
+				$scope.showIt = true;
+			}, function(failure){
+				console.log("Failed to submit");
+				$scope.showBad = false;
+			});*/
+			$scope.showBad = false;
+			
 			//ApiFactory.addEvaluation();
 			//var answers = new Array();
 

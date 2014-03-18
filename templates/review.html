@@ -1,0 +1,28 @@
+<div ng-repeat="course in evaluation.Courses" ng-show="courseID == course.CourseID">
+	<h2>{{course.CourseNameIS}}</h2>
+	<h3>Áfanga Spurningar</h3>
+	<div  ng-repeat="question in course.Questions" ng-show="question.TeacherSSN == NULL">
+		<h6>{{question.TextIS}}</h6>
+		<ul>
+			<li ng-repeat="option in question.OptionsResults">
+				{{option.AnswerTextIS}}
+			</li>
+			<li ng-repeat="text in question.TextResults">
+				{{text}}
+			</li>
+		</ul>
+	</div>
+	<h3>Kennara Spurningar</h3>
+	<div  ng-repeat="question in course.Questions" ng-show="question.TeacherSSN != NULL">
+		<h6>{{question.TextIS}}</h6>
+		<ul>
+			<li ng-repeat="option in question.OptionsResults">
+				{{option.AnswerTextIS}}
+			</li>
+			<li ng-repeat="text in question.TextResults">
+				{{text}}
+			</li>
+		</ul>
+	</div>
+</div>
+

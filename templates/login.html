@@ -1,7 +1,7 @@
 <div id="loginWindow" class="col-lg-1 col-offset-6" ng-model="wrongUser">
 <h2>Log In</h2>
 	<input type="text" ng-enter="getCredentials()" ng-model="username"¡ placeholder="User Name" />
-	<input type="password" ng-enter="getCredentials()" ng-model="password" placeholder="Password" />
+	<input type="password" ng-enter="getCredentials()" ng-model="password" placeholder="Password" required>
 
 	<button class="btn btn-default" ng-click="getCredentials()">Log In</button>
 	<whiskey id="wrongUser">{{wrongUser}}</whiskey>

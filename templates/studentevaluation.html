@@ -18,7 +18,7 @@
 		</li>
 
 		<li ng-if="questions.Type == 'multiple'" ng-repeat="answers in questions.Answers">
-			<input type="checkbox" ng-model="ans[questions.ID]" ng-value="answers.TextIS" name="{{questions.TextIS}}"> {{answers.TextIS}}</input>
+			<input type="checkbox" ng-model="courseAns[questions.ID]" ng-value="answers.TextIS" name="{{questions.TextIS}}"> {{answers.TextIS}}</input>
 		</li>
 	</ul>
 </div>
@@ -48,6 +48,7 @@
 	</div>
 </div>
 <div class="alert alert-success" ng-show="showIt == true">Submitted! Thank you for your contribution!</div>
+<div class="alert alert-danger" ng-show="showBad == true">Please Answer All the questions to submit, thank you.</div>
 <button ng-show="showIt == false" id="submitBtn" ng-click="submitEvaluation()" class="btn btn-success btn-large"><i class="icon-white icon-arrow-left"></i>Submit</button>
 
 

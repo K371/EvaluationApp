@@ -37,5 +37,11 @@ app.config(function($routeProvider) {
 	}).when("/Courses/:courseID", {											/* if nothing fits */
 		templateUrl: "templates/courseevaluations.html",
 		controller: "CourseEvaluationController",
+	}).when("/Admin/:courseID", {											/* if nothing fits */
+		templateUrl: "templates/courses.html",
+		controller: "CourseEvaluationController",
+	}).when("/Admin/Evaluation/:courseID/:evaluationID", {											/* if nothing fits */
+		templateUrl: "templates/review.html",
+		controller: "ReviewController",
 	}).otherwise({ redirectTo: "/"});
 });

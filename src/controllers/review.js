@@ -1,11 +1,12 @@
-app.controller("CourseEvaluationController", [
+app.controller("ReviewController", [
 	"$scope", "ApiFactory", "LogInFactory", "$location", "$http", "$routeParams",
 	function($scope, ApiFactory, LogInFactory, $location, $http, $routeParams) {
 		var token = LogInFactory.getToken();
 		var role = LogInFactory.getRole();
 		var firstname = LogInFactory.getFirstName();
-		var courseID = $routeParams;
-		$scope.courseID = $routeParams;
+		var courseID = $routeParams.courseID;
+		$scope.courseID = $routeParams.courseID;
+		var evaluationID = $routeParams.evaluationID;
 
  		if(token === ""){
  			$location.path("/");
@@ -14,13 +15,12 @@ app.controller("CourseEvaluationController", [
  			$location.path("/Student");
  		}
  		
- 		
  			$http({	method: 'GET', 
-					url: 'http://dispatch.ru.is/h26/api/v1/evaluations' 
+					url: 'http://dispatch.ru.is/h26/api/v1/evaluations/' + evaluationID
 				
 				}).
     			success(function(data, status, headers, config) {
-      				$scope.evaluations = data;
+      				$scope.evaluation = data;
       				console.log(data);
     			}).
 		    		error(function(data, status, headers, config) {
